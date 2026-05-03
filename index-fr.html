@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepts | Arc Raiders</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+        <div class="nav-logo-container">
+            <div class="dynamic-logo"></div>
+        </div>
+        <div class="nav-links">
+            <a href="index-fr.html" style="color: var(--accent);">Club Speranza</a>
+            <a href="concept2-fr.html">Concept 2</a>
+            <a href="concept3-fr.html">Concept 3</a>
+        </div>
+        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
+            <div class="lang-flags">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="flag" title="English">ENG</span>
+                </a>
+                <span class="flag active" title="Français">FR</span>
+            </div>
+            <button class="theme-btn" id="theme-toggle">Mode Sombre</button>
+        </div>
+    </nav>
+
+    <header class="hero-container">
+        <div class="hero-bg"></div>
+        <h1>Club Speranza</h1>
+        <h2>UN SYSTÈME COMPÉTITIF CLASSÉ</h2>
+    </header>
+
+    <div class="overview-text">
+        voici un aperçu rapide du nouveau mode
+    </div>
+
+    <section class="concept-grid" id="grid">
+        <div class="card" style="--card-bg-img: url('HC1.webp');">
+            <h3>NATURELLEMENT INTÉGRÉ</h3>
+            <div class="card-info">
+                <p>Nouveau mode<br>Les Trials existent toujours</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('HC2.webp');">
+            <h3>TROIS PILIERS</h3>
+            <div class="card-info">
+                <p>Joueur contre Environnement<br>Joueur contre Joueur<br>Récupération (Loot)</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+            </div>
+        </div>
+        
+        <div class="card" style="--card-bg-img: url('HC3.webp');">
+            <h3>PROGRESSION</h3>
+            <div class="card-info">
+                <p>Un classement pour prouver vos talents<br>Engager la communauté PVP</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator">
+        <span>défilez vers le bas pour plus d'infos</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <!-- FENÊTRE 1 -->
+    <section class="info-section align-left" style="background: url('three_pillars_info.png') center 15%/cover no-repeat;">
+        <div class="info-content">
+            <h2>LA PIÈCE MANQUANTE</h2>
+            <p class="intro-text">La boucle d'extraction est infinie par nature. Vous vous équipez, vous survivez, la saison se termine, et vous recommencez. Le Club Speranza offre un but à cette boucle. Apportez votre équipement. Payez le coût d'entrée lié à votre rang. Marquez des points à travers trois piliers — PvP, PvE, Loot — et extrayez-vous pour les valider.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE TRIALS -->
+    <section id="section-trials" class="info-section align-center window-trials">
+        <div class="info-content">
+            <div class="trials-header">
+                <h2 class="trials-title">Normal, Classé, Trials &mdash; <span>la boucle est bouclée.</span></h2>
+                <p class="trials-desc">Le Club Speranza est un ajout, pas un remplacement. Les raids normaux deviennent de la préparation. Les Trials restent un rendez-vous hebdomadaire. Le mode Classé s'installe entre les deux. Les trois modes se nourrissent mutuellement, et <em>la boucle de loot a enfin une destination compétitive.</em></p>
+            </div>
+            
+            <div class="loop-container">
+                <div class="loop-card light">
+                    <div class="loop-card-eyebrow">DÉTENTE</div>
+                    <h4>Raids Normaux</h4>
+                    <p>Fabriquez votre équipement. Apprenez les cartes. C'est la phase de préparation pour la compétition, et le cœur social du jeu.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+                
+                <div class="loop-card dark">
+                    <div class="loop-card-eyebrow">COMPÉTITIF</div>
+                    <h4>Club Speranza</h4>
+                    <p>Apportez votre équipement. Payez l'entrée. Grimpez les échelons. L'unique endroit où votre talent d'extraction se transforme en un score sur un classement.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                </div>
+                
+                <div class="loop-card light">
+                    <div class="loop-card-eyebrow">ENGAGEMENT</div>
+                    <h4>Trials</h4>
+                    <p>Le défi hebdomadaire et sa boucle de récompenses &mdash; conservés, pas supprimés. Les Trials répondent à un besoin différent du mode Classé.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 2 (Piliers) -->
+    <section id="section-pillars" class="info-section align-center window-2" style="background: url('window2_BG.avif') center/cover no-repeat;">
+        <div class="info-content">
+            <div class="window-2-layout">
+                <div class="schema-container">
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">01 &middot; PILIER</div>
+                        <h3 class="schema-title">PVE</h3>
+                        <div class="schema-subtitle">PLAFOND D'ÉQUIPE 1,300</div>
+                        <p class="schema-text">Éliminations d'ARC. <br> La valeur de base est divisée par trois et créditée à chaque coéquipier en vie au moment du kill. <br> Les parts perdues suite à une mort sont détruites, non redistribuées. <br> Les ARCs lâchent aussi un peu de loot (selon la rareté) — utile, mais volontairement inférieur au loot des raiders.</p>
+                    </div>
+                    
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">02 &middot; PILIER</div>
+                        <h3 class="schema-title">LOOT</h3>
+                        <div class="schema-subtitle">PLAFOND D'ÉQUIPE 1,000</div>
+                        <p class="schema-text">Valeur des pièces trouvées sur le terrain, converties à <em>1,000 pièces = 1 point</em>.<br> Un seul joueur transporte environ 350,000 pièces (au max) ; trois joueurs ensemble transportent un maximum théorique de 1,000,000 de pièces — le plafond de Loot en points. <br> L'équipement de départ vaut zéro. L'équipement ennemi compte à 100%. L'équipement d'un coéquipier est rendu mais ne donne aucun point.</p>
+                    </div>
+
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">03 &middot; PILIER</div>
+                        <h3 class="schema-title">PVP</h3>
+                        <div class="schema-subtitle">PLAFOND D'ÉQUIPE 700</div>
+                        <p class="schema-text">Éliminations de Raiders. <br><strong>45 points par kill</strong>, crédités au tireur. Le loot pris sur les raiders éliminés compte pour le pilier Loot — éliminer un raider offre donc deux sources de points. <br>Le plafond à 700 équivaut à ~16 kills, soit environ la moitié du lobby ; l'atteindre prend presque toute la partie, c'est une limite stricte, pas un objectif à atteindre à tout prix.</p>
+                        <a class="pvp-link" id="openModalBtn">POURQUOI LE PVP EST-IL CAPÉ SI BAS ?</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel">
+                    <h2>À PROPOS DES TROIS PILIERS</h2>
+                    <p class="intro-text">Le score dans le Club Speranza s'accumule via trois piliers indépendants. <br><br> <strong> Chacun a son propre plafond d'équipe : </strong> <br> <br> <em>Ce qui empêche toute stratégie basée sur un seul axe de dominer. </em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 3 (Progression Visuelle) -->
+    <section id="section-progression" class="info-section align-left" style="background: url('image_fenetre_3.jpg') center/cover no-repeat;">
+        <div class="info-content progression-layout" style="max-width: 1600px; width: 100%;">
+            <div class="progression-text">
+                <h2>UNE PROGRESSION VISUELLE</h2>
+                <p class="intro-text"> <em>L'échelle à gravir, pour engager le PVPVE de manière bien plus compétitive.</em> </p>
+            </div>
+
+            <div class="progression-visual">
+                <svg class="progression-svg" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 250 Q 600 230 1150 80" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10" />
+                    <circle cx="100" cy="250" r="8" fill="var(--accent)" />
+                    <circle cx="600" cy="198" r="8" fill="var(--accent)" />
+                    <circle cx="1150" cy="80" r="8" fill="var(--accent)" />
+                </svg>
+                <div class="rank-node node-1"><img src="rank1.png" alt="Rank 1"></div>
+                <div class="rank-node node-2"><img src="rank2.png" alt="Rank 2"></div>
+                <div class="rank-node node-3"><img src="rank3.png" alt="Rank 3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 4 (DOCUMENT REFORMATÉ) -->
+    <section class="info-section align-center" style="background: url('image_fenetre_4.jpg') center/cover no-repeat;">
+        <div class="info-content document-layout" style="max-width: 1400px; width: 100%;">
+            <div class="doc-preview-wrapper">
+                <a href="https://verbena-feet-dc8.notion.site/CLUB-SPERANZA-34d575282c1d80d6af1ee94a0f408c56" class="doc-image-link" target="_blank">
+                    <img src="FullDoc.png" alt="Document Preview" class="doc-image">
+                </a>
+                <span class="doc-caption">CLIQUEZ ICI POUR TÉLÉCHARGER LE DOCUMENT COMPLET ^</span>
+            </div>
+
+            <div class="doc-text-wrapper">
+                <h2>UN DOCUMENT<br>DE 56 PAGES</h2>
+                <p class="doc-author">Ce document a été conçu par <strong>Emirhan A.</strong></p>
+                <div class="doc-credentials">
+                    <span>Maître sur Apex Legends</span>
+                    <span class="dot">&middot;</span>
+                    <span>Pic Immortel 2 sur Valorant <em>(MMR Radiant)</em></span>
+                    <span class="dot">&middot;</span>
+                    <span class="highlight">Plus de 400 heures sur ARC Raiders</span>
+                </div>
+                <p class="doc-body-text">est à l'origine de ce concept.</p>
+                <p class="doc-cta-text">Jetez-y un œil si vous voulez plus d'infos sur ce mode !</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="pvpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <div class="modal-title"><span>POURQUOI LE PVP EST CAPÉ BAS</span> &ndash; UN CONTACT NATUREL, PAS DU FARM</div>
+            <p class="modal-text">Ce plafond bas est délibéré. Le PvP est pensé comme un <em>contact naturel</em>, pas une stratégie. Les affrontements ont lieu lors des rotations ou des interceptions — pas parce qu'une équipe a choisi le PvP pour marquer des points. Si le PvP était illimité, le mode se transformerait en match à mort par équipe où tuer des raiders serait la seule chose qui compte. Le ratio des plafonds (PvE 1,300 > Loot 1,000 > PvP 700) indique intuitivement au joueur quel axe prioriser sans jamais l'écrire noir sur blanc. Une équipe qui joue sur les trois piliers battra toujours une équipe qui n'en vise qu'un seul.</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION FLOTTANTE -->
+    <div class="floating-nav" id="floatingNav">
+        <div class="nav-dot" data-target="section-trials"><span class="dot-label">Naturellement Intégré</span></div>
+        <div class="nav-dot" data-target="section-pillars"><span class="dot-label">Trois Piliers</span></div>
+        <div class="nav-dot" data-target="section-progression"><span class="dot-label">Progression</span></div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                const targets = ['section-trials', 'section-pillars', 'section-progression'];
+                const targetElement = document.getElementById(targets[index]);
+                if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            themeToggleBtn.textContent = document.body.classList.contains('dark-theme') ? 'Mode Clair' : 'Mode Sombre';
+        });
+
+        const infoContents = document.querySelectorAll('.info-content');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } 
+                else { entry.target.classList.remove('is-visible'); }
+            });
+        }, observerOptions);
+        infoContents.forEach(content => observer.observe(content));
+
+        const modal = document.getElementById("pvpModal");
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.getElementById("closeModalBtn");
+        if(openBtn) { openBtn.addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('show'); }); }
+        closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+
+        const floatingNav = document.getElementById('floatingNav');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const sections = [ document.getElementById('section-trials'), document.getElementById('section-pillars'), document.getElementById('section-progression') ];
+
+        window.addEventListener('scroll', () => {
+            if (scrollIndicator.getBoundingClientRect().top < 0) { floatingNav.classList.add('is-visible'); } 
+            else { floatingNav.classList.remove('is-visible'); }
+
+            let currentSectionId = '';
+            sections.forEach(section => {
+                if (!section) return;
+                if (pageYOffset >= (section.offsetTop - window.innerHeight / 2)) { currentSectionId = section.getAttribute('id'); }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === currentSectionId) { dot.classList.add('active'); }
+            });
+        });
+
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetSection = document.getElementById(dot.getAttribute('data-target'));
+                if (targetSection) { targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+    </script>
+</body>
+</html>

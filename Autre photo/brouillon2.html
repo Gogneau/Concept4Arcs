@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepts | Arc Raiders</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES CSS --- */
+        :root {
+            --bg-main: #E8E4DB;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --nav-bg: #E8E4DB;
+            --nav-border: #D5D0C5;
+            --nav-separator: #B0ADA5;
+            --card-bg-closed: #FAFAFA;
+            --card-border: #D5D0C5;
+            --accent: #ff6a00;
+            
+            --hero-grad-top: rgba(232, 228, 219, 0); 
+            --hero-grad-bottom: rgba(232, 228, 219, 1);
+            --info-overlay: rgba(232, 228, 219, 0.85); 
+            
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-strong: rgba(0, 0, 0, 0.15);
+            --logo-image: url('logo-noir.svg'); 
+            
+            --glass-bg: rgba(245, 243, 238, 0.95);
+        }
+
+        body.dark-theme {
+            --bg-main: #0a0a0a;
+            --text-main: #f4f4f4;
+            --text-muted: #aaaaaa;
+            --nav-bg: #111111;
+            --nav-border: #333333;
+            --nav-separator: #555555;
+            --card-bg-closed: #1a1a1a;
+            --card-border: #333333;
+            
+            --hero-grad-top: rgba(10, 10, 10, 0);
+            --hero-grad-bottom: rgba(10, 10, 10, 1);
+            --info-overlay: rgba(10, 10, 10, 0.85); 
+            
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-strong: rgba(255, 106, 0, 0.2); 
+            --logo-image: url('logo-blanc.svg'); 
+            
+            --glass-bg: rgba(17, 17, 17, 0.95);
+        }
+
+        /* --- RESET ET POLICES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Barlow', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-main);
+            overflow-x: hidden;
+            overflow-y: scroll; 
+            transition: background-color 0.4s ease, color 0.4s ease; 
+        }
+
+        /* --- BARRE DE SLIDE --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--nav-bg); border-left: 1px solid var(--nav-border); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff8c33; }
+
+        /* --- BARRE DE NAVIGATION --- */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 2px solid var(--nav-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .nav-logo-container { flex: 1; display: flex; justify-content: flex-start; }
+        
+        .dynamic-logo { 
+            height: 35px;
+            width: 200px; 
+            background-image: var(--logo-image);
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-position: left center;
+            transition: background-image 0.4s ease;
+        }
+        
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none; 
+            text-transform: uppercase;
+            letter-spacing: 2px; 
+            font-size: 18px; 
+            font-weight: 600; 
+            transition: color 0.3s; 
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:not(:last-child)::after {
+            content: ""; position: absolute; right: -15px; top: 50%;
+            transform: translateY(-50%); height: 18px; width: 2px; 
+            background-color: var(--nav-separator);
+            transition: background-color 0.4s ease;
+        }
+        
+        .nav-spacer { flex: 1; display: flex; justify-content: flex-end; }
+
+        .theme-btn {
+            background: transparent; border: 2px solid var(--text-main); color: var(--text-main);
+            padding: 8px 15px; font-family: 'Barlow', sans-serif; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            border-radius: 4px; transition: all 0.3s ease;
+        }
+        .theme-btn:hover { background-color: var(--text-main); color: var(--bg-main); }
+
+        /* --- HERO SECTION --- */
+        .hero-container {
+            position: relative;
+            height: 40vh; 
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 20px;
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('club_speranza_BG.jpg');
+            background-size: cover; 
+            background-position: center 40%; 
+            z-index: -2;
+        }
+
+        .hero-container::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(232, 228, 219, 0) 0%, rgba(232, 228, 219, 0.85) 60%, rgba(232, 228, 219, 1) 100%);
+            z-index: -1; opacity: 1; transition: opacity 0.5s ease;
+        }
+
+        .hero-container::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.85) 60%, rgba(10, 10, 10, 1) 100%);
+            z-index: -1; opacity: 0; transition: opacity 0.5s ease;
+        }
+
+        body.dark-theme .hero-container::before { opacity: 0; }
+        body.dark-theme .hero-container::after { opacity: 1; }
+
+        .hero-container h1 { 
+            font-size: 5.5rem; 
+            text-transform: uppercase; letter-spacing: 6px; font-weight: 900; 
+            margin-bottom: 15px; 
+            color: var(--text-main); transition: color 0.4s ease; position: relative; z-index: 2;
+        }
+        
+        .hero-container h2 { 
+            font-size: 1.4rem; 
+            color: var(--accent); 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            position: relative; z-index: 2;
+        }
+
+        /* --- TEXTES D'INDICATION --- */
+        .overview-text {
+            text-align: center; font-size: 1.1rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 2px; 
+            font-weight: 600; 
+            margin-top: 20px; margin-bottom: 25px; 
+            transition: color 0.4s ease;
+        }
+
+        .scroll-indicator {
+            text-align: center; margin-top: 20px; margin-bottom: 50px; display: flex;
+            flex-direction: column; align-items: center; gap: 8px; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.9rem;
+            font-weight: 800; transition: color 0.4s ease; animation: bounce 2s infinite; 
+        }
+        .scroll-indicator svg { width: 18px; height: 18px; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        /* --- CASES INTERACTIVES --- */
+        .concept-grid {
+            display: flex; flex-wrap: nowrap; gap: 20px; 
+            padding: 0px 50px 30px 50px; 
+            justify-content: center; align-items: center; width: 100%; max-width: 1700px; margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg-closed); width: 400px; height: 550px; 
+            border: 1px solid var(--card-border); border-radius: 5px; padding: 30px; 
+            display: flex; flex-direction: column; cursor: pointer;
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            position: relative; overflow: hidden; transform: translateZ(0); 
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .card::before {
+            content: ''; position: absolute;
+            top: -5%; left: -5%; width: 110%; height: 110%;
+            background-image: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%), var(--card-bg-img, none);
+            background-size: cover; background-position: center;
+            opacity: 1; filter: blur(0px); transition: opacity 0.6s ease, filter 0.6s ease; z-index: 0;
+        }
+
+        .card > * { position: relative; z-index: 1; }
+
+        .card:hover { border-color: var(--accent); box-shadow: 0 10px 40px var(--shadow-strong); }
+
+        .card h3 { 
+            margin-top: auto; margin-bottom: 0; font-size: 1.6rem; font-weight: 900; 
+            text-transform: uppercase; white-space: normal; line-height: 1.2;
+            transition: all 0.4s ease; text-align: center; width: 100%; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
+        }
+        
+        .card:hover h3 { margin-bottom: 10px; }
+        
+        .card-info {
+            max-height: 0; opacity: 0; overflow: hidden; transform: translateY(10px); 
+            transition: all 0.4s ease; text-align: center; width: 100%; color: #eeeeee; font-size: 1.1rem;
+        }
+        
+        .card:hover .card-info { max-height: 150px; opacity: 1; transform: translateY(0); }
+
+        .card p { font-weight: 400; line-height: 1.5; white-space: normal; }
+
+        /* --- SECTIONS INFO MULTIPLES --- */
+        .info-section {
+            position: relative;
+            min-height: 45vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 10%; 
+            border-top: 2px solid var(--accent); 
+            background-color: var(--bg-main); 
+            overflow: hidden; 
+        }
+
+        .info-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--info-overlay); z-index: 1; transition: background-color 0.4s ease;
+        }
+
+        .info-section.window-2 {
+            min-height: 70vh;
+            padding: 40px 2%; 
+        }
+
+        .info-section.window-2::before { background-color: rgba(232, 228, 219, 0.1); }
+        body.dark-theme .info-section.window-2::before { background-color: rgba(10, 10, 10, 0.2); }
+
+        .info-section.align-left { align-items: flex-start; text-align: left; }
+        .info-section.align-right { align-items: flex-end; text-align: right; }
+        .info-section.align-center { align-items: center; text-align: left; }
+
+        .info-content {
+            position: relative;
+            z-index: 2; 
+            max-width: 650px; 
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
+                        transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .info-section.align-left .info-content { transform: translateX(-50px); }
+        .info-section.align-right .info-content { transform: translateX(50px); }
+        .info-section.align-center .info-content { transform: translateY(50px); max-width: 1850px; width: 98%; }
+
+        .info-content.is-visible {
+            opacity: 1;
+            transform: translate(0) !important;
+        }
+
+        .info-content h2 {
+            font-size: 3.5rem; text-transform: uppercase; font-weight: 900;
+            letter-spacing: 3px; margin-bottom: 25px; 
+            color: var(--text-main); transition: color 0.4s ease;
+        }
+
+        .info-content p.intro-text {
+            font-size: 1.25rem; line-height: 1.8; 
+            color: var(--text-main); transition: color 0.4s ease;
+        }
+
+        /* --- FENÊTRE TRIALS --- */
+        .info-section.window-trials {
+            min-height: 60vh;
+            background-color: var(--bg-main);
+        }
+        
+        .info-section.window-trials::before {
+            background-color: transparent; 
+        }
+        
+        .info-section.window-trials .info-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: left; 
+        }
+
+        .trials-header {
+            margin-bottom: 50px;
+        }
+
+        .info-content h2.trials-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            text-transform: none; 
+            letter-spacing: normal;
+        }
+        
+        .info-content h2.trials-title span {
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .trials-desc {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text-main);
+            max-width: 1000px;
+        }
+        
+        .trials-desc em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .loop-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .loop-card {
+            flex: 1;
+            min-height: 350px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+
+        .loop-card h4 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: auto; 
+        }
+
+        .loop-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-top: 40px;
+        }
+
+        .loop-card.light {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--text-main);
+        }
+        
+        body.dark-theme .loop-card.light {
+            border-color: var(--card-border);
+        }
+
+        /* --- INVERSION DU DARK/LIGHT POUR LA CARTE CENTRALE --- */
+        .loop-card.dark {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: 1px solid transparent;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .loop-card.dark {
+            background-color: #FAFAFA; 
+            color: #111111; 
+            border: 1px solid var(--accent); 
+            box-shadow: 0 10px 40px rgba(255, 106, 0, 0.2);
+        }
+
+        .loop-card-eyebrow {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .loop-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+        
+        .loop-connector svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        @media (max-width: 1000px) {
+            .loop-container {
+                flex-direction: column;
+            }
+            .loop-card {
+                width: 100%;
+                min-height: auto;
+            }
+            .loop-connector {
+                transform: rotate(90deg);
+                margin: 15px 0;
+            }
+        }
+
+        /* --- NOUVEAU LAYOUT FENÊTRE 2 --- */
+        .window-2-layout {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .schema-container {
+            display: flex; 
+            gap: 30px; 
+            flex: 2.8; 
+        }
+
+        .schema-column {
+            flex: 1;
+            background-color: var(--card-bg-closed); 
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--accent); 
+            border-radius: 8px;
+            padding: 50px 35px; 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); 
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            text-align: left;
+        }
+        
+        body.dark-theme .schema-column {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); 
+        }
+
+        .schema-eyebrow {
+            color: var(--accent); font-size: 0.85rem; font-weight: 800;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;
+        }
+
+        .schema-title {
+            font-size: 3rem; font-weight: 900; color: var(--text-main); margin: 0;
+            text-transform: uppercase; transition: color 0.4s ease;
+        }
+
+        .schema-subtitle {
+            font-size: 0.95rem; font-weight: 600; color: var(--text-muted);
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; transition: color 0.4s ease;
+        }
+
+        .schema-text {
+            font-size: 1.1rem; line-height: 1.7; color: var(--text-main); transition: color 0.4s ease;
+        }
+
+        .glass-panel {
+            flex: 1; 
+            min-width: 420px; 
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 50px; 
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            text-align: left;
+        }
+
+        body.dark-theme .glass-panel {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-panel h2 {
+            font-size: 2.5rem; margin-bottom: 20px;
+        }
+        .glass-panel p.intro-text {
+            font-size: 1.15rem; margin: 0;
+        }
+
+        .pvp-link {
+            display: inline-block; margin-top: 25px; color: var(--accent);
+            font-weight: 800; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;
+            cursor: pointer; text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 0.3s ease;
+        }
+        .pvp-link:hover { border-bottom: 2px solid var(--accent); }
+
+        @media (max-width: 1200px) { 
+            .window-2-layout { flex-direction: column-reverse; } 
+            .schema-container { flex-direction: column; width: 100%; }
+        }
+
+        /* --- POP-UP MODAL PVP --- */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px); opacity: 0; transition: opacity 0.3s ease;
+            justify-content: center; align-items: center;
+        }
+        .modal.show { display: flex; opacity: 1; }
+
+        .modal-content {
+            background-color: var(--card-bg-closed); padding: 40px; border-radius: 5px;
+            max-width: 800px; width: 90%; border-left: 6px solid var(--accent);
+            position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transform: translateY(20px); transition: transform 0.3s ease, background-color 0.4s ease;
+        }
+        .modal.show .modal-content { transform: translateY(0); }
+
+        .close-btn {
+            position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer; 
+            color: var(--text-muted); transition: color 0.3s; line-height: 1;
+        }
+        .close-btn:hover { color: var(--accent); }
+
+        .modal-title {
+            font-size: 1.2rem; font-weight: 800; color: var(--text-main); text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 20px; border-bottom: 1px solid var(--card-border);
+            padding-bottom: 15px;
+        }
+        .modal-title span { color: var(--accent); }
+        .modal-text { font-size: 1.15rem; line-height: 1.8; color: var(--text-main); }
+
+        /* --- NAVIGATION FLOTTANTE --- */
+        .floating-nav {
+            position: fixed;
+            left: 30px; 
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 1000;
+            opacity: 0; 
+            pointer-events: none; 
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .floating-nav.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--nav-separator);
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .nav-dot.active {
+            background-color: var(--accent);
+            border: 2px solid var(--bg-main);
+            transform: scale(1.3);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        body.dark-theme .nav-dot.active {
+            border-color: var(--bg-main);
+        }
+
+        /* Infobulles avec les titres */
+        .dot-label {
+            position: absolute;
+            left: 35px; 
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--card-bg-closed);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            border: 1px solid var(--card-border);
+        }
+
+        .nav-dot:hover .dot-label {
+            opacity: 1;
+            transform: translateY(-50%) translateX(10px); 
+        }
+
+        /* --- AJOUT : PROGRESSION VISUELLE (COURBE LIGNE ÉTIRÉE) --- */
+        .progression-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px; 
+            width: 100%;
+        }
+
+        .progression-text {
+            flex: 0 0 25%; 
+            max-width: 350px;
+        }
+
+        .progression-visual {
+            flex: 1; 
+            position: relative;
+            width: 100%;
+            padding-top: 30px; 
+            margin-left: 40px; 
+        }
+
+        .progression-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .rank-node {
+            position: absolute;
+            transform: translate(-50%, -100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .rank-node img {
+            width: 130px; 
+            height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .rank-node:hover {
+            z-index: 10;
+        }
+
+        .rank-node:hover img {
+            transform: translateY(-15px) scale(1.10);
+        }
+
+        .node-1 { left: 8.3%; top: 83%; }
+        .node-2 { left: 50%; top: 66%; }
+        .node-3 { left: 95.8%; top: 27%; }
+
+        /* --- AJOUT : LAYOUT DOCUMENT (FENÊTRE 4) --- */
+        .document-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            width: 100%;
+        }
+
+        .doc-preview-wrapper {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .doc-image-link {
+            display: block;
+            width: 280px;
+            aspect-ratio: 1 / 1.414; /* Format A4 Mathématique */
+            background-color: var(--card-bg-closed);
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            overflow: hidden;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .doc-image-link:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(255, 106, 0, 0.2);
+            border-color: var(--accent);
+        }
+
+        .doc-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doc-caption {
+            color: var(--accent);
+            font-weight: 900;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            text-align: center;
+            max-width: 280px;
+        }
+
+        .doc-text-wrapper {
+            flex: 1;
+            max-width: 650px;
+            text-align: left;
+        }
+
+        .doc-text-wrapper h2 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .doc-author {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+        
+        .doc-author strong {
+            color: var(--accent);
+        }
+
+        .doc-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .doc-credentials span.dot {
+            color: var(--nav-separator);
+        }
+
+        .doc-credentials .highlight {
+            color: var(--text-main);
+            background-color: rgba(255, 106, 0, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 106, 0, 0.3);
+        }
+
+        .doc-body-text {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .doc-cta-text {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--text-main);
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 1100px) {
+            .progression-layout {
+                flex-direction: column;
+                text-align: left;
+            }
+            .progression-text {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+            .progression-visual {
+                padding-top: 80px; 
+                margin-left: 0;
+                flex: 1;
+            }
+            .rank-node img { width: 90px; }
+            
+            .document-layout {
+                flex-direction: column;
+                text-align: left;
+                gap: 50px;
+            }
+            .doc-text-wrapper h2 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo-container">
+            <div class="dynamic-logo"></div>
+        </div>
+        <div class="nav-links">
+            <a href="#">Club Speranza</a>
+            <a href="#">Concept 2</a>
+            <a href="#">Concept 3</a>
+        </div>
+        <div class="nav-spacer">
+            <button class="theme-btn" id="theme-toggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <header class="hero-container">
+        <div class="hero-bg"></div>
+        <h1>Club Speranza</h1>
+        <h2>A RANKED COMPETITIVE SYSTEM</h2>
+    </header>
+
+    <div class="overview-text">
+        here's a quick overview of the new mode
+    </div>
+
+    <section class="concept-grid" id="grid">
+        
+        <div class="card" style="--card-bg-img: url('HC1.webp');">
+            <h3>NATURALLY INTEGRATED</h3>
+            <div class="card-info">
+                <p>New mode<br>Trials still exist</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('HC2.webp');">
+            <h3>THREE PILLARS</h3>
+            <div class="card-info">
+                <p>Player Vs Environment<br>Player Vs Player<br>Looting</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+        
+        <div class="card" style="--card-bg-img: url('HC3.webp');">
+            <h3>PROGRESSION</h3>
+            <div class="card-info">
+                <p>A ladder to show your skills<br>Engaging the PVP community</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="scroll-indicator">
+        <span>scroll down for more info</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    
+    <!-- FENÊTRE 1 -->
+    <section class="info-section align-left" style="background: url('three_pillars_info.png') center 15%/cover no-repeat;">
+        <div class="info-content">
+            <h2>A MISSING PIECE</h2>
+            <p class="intro-text"> The extraction loop is open-ended by design. You bring gear, you survive, the season ends, you bring gear again. Club Speranza gives that loop a ladder. Bring your gear. Pay an entry cost tied to your rank. Score across three pillars — PvP, PvE, Loot — and extract to bank it.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE TRIALS -->
+    <section id="section-trials" class="info-section align-center window-trials">
+        <div class="info-content">
+            <div class="trials-header">
+                <h2 class="trials-title">Normal, Ranked, Trials &mdash; <span>the closed loop.</span></h2>
+                <p class="trials-desc">Club Speranza is additive, not replacive. Normal raids become preparation. Trials stays as a weekly engagement surface. Ranked sits between them as the ladder. The three modes feed each other, and <em>the loot loop finally has a competitive destination.</em></p>
+            </div>
+            
+            <div class="loop-container">
+                <div class="loop-card light">
+                    <div class="loop-card-eyebrow">CASUAL</div>
+                    <h4>Normal Raids</h4>
+                    <p>Build gear. Learn maps. Loot loadouts. The preparation phase for competitive play, and the social heart of the game.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+                
+                <div class="loop-card dark">
+                    <div class="loop-card-eyebrow">COMPETITIVE</div>
+                    <h4>Club Speranza</h4>
+                    <p>Bring your gear. Pay the entry cost. Climb the ladder. The one place where elite extraction skill becomes a number on a leaderboard.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                </div>
+                
+                <div class="loop-card light">
+                    <div class="loop-card-eyebrow">ENGAGEMENT</div>
+                    <h4>Trials</h4>
+                    <p>Weekly challenge and reward loop &mdash; kept, not removed. Trials serves a different need than ranked and continues doing so.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 2 (Piliers) -->
+    <section id="section-pillars" class="info-section align-center window-2" style="background: url('window2_BG.avif') center/cover no-repeat;">
+        <div class="info-content">
+            <div class="window-2-layout">
+                
+                <div class="schema-container">
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">01 &middot; PILLAR</div>
+                        <h3 class="schema-title">PVE</h3>
+                        <div class="schema-subtitle">TEAM CAP 1,300</div>
+                        <p class="schema-text">ARC kills. <br> Base value divided by three and credited to each living teammate at the moment of the kill. <br> Shares lost to death are destroyed, not redistributed. <br> ARCs also drop a small amount of loot across all tiers (scaled by rarity) — meaningful but deliberately below raider-carried loot.</p>
+                    </div>
+                    
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">02 &middot; PILLAR</div>
+                        <h3 class="schema-title">LOOT</h3>
+                        <div class="schema-subtitle">TEAM CAP 1,000</div>
+                        <p class="schema-text">Field-found coin value, converted at <em>1,000 coin = 1 point</em>.<br> A single player carries roughly 350,000 coin (at max) of field-found loot; three players together carry a theoretical maximum of 1,000,000 coin — the Loot cap in point form. <br> Entry loadout scores zero. Enemy loadout scores at full rate. Teammate loadout is returned on extraction but does not score.</p>
+                    </div>
+
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">03 &middot; PILLAR</div>
+                        <h3 class="schema-title">PVP</h3>
+                        <div class="schema-subtitle">TEAM CAP 700</div>
+                        <p class="schema-text">Raider kills. <br><strong>45 points per kill</strong>, credited to the killer. Loot taken from eliminated raiders counts under the Loot pillar — eliminating a raider has two score sources attached to it. <br>The cap at 700 equals ~16 kills, roughly half the lobby; reaching it takes most of the match and is a hard ceiling, not a target.</p>
+                        
+                        <a class="pvp-link" id="openModalBtn">WHY PVP IS CAPPED LOW ?</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel">
+                    <h2>ABOUT THE THREE PILLARS</h2>
+                    <p class="intro-text">Score in Club Speranza accumulates along three independent pillars. <br><br> <strong> Each has its own team-level cap: </strong> <br> <br> <em>Preventing any single-axis strategy from dominating. </em></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 3 (Progression Visuelle) -->
+    <section id="section-progression" class="info-section align-left" style="background: url('image_fenetre_3.jpg') center/cover no-repeat;">
+        <div class="info-content progression-layout" style="max-width: 1600px; width: 100%;">
+            
+            <div class="progression-text">
+                <h2>A VISUAL PROGRESSION</h2>
+                <p class="intro-text"> <em> The ladder to climb, making the PVPVE engaged in a more competitive way.</em> </p>
+            </div>
+
+            <div class="progression-visual">
+                <svg class="progression-svg" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 250 Q 600 230 1150 80" 
+                          stroke="var(--accent)" 
+                          stroke-width="4" 
+                          stroke-linecap="round" 
+                          stroke-dasharray="10 10" />
+                    
+                    <circle cx="100" cy="250" r="8" fill="var(--accent)" />
+                    <circle cx="600" cy="198" r="8" fill="var(--accent)" />
+                    <circle cx="1150" cy="80" r="8" fill="var(--accent)" />
+                </svg>
+
+                <div class="rank-node node-1">
+                    <img src="rank1.png" alt="Rank 1">
+                </div>
+
+                <div class="rank-node node-2">
+                    <img src="rank2.png" alt="Rank 2">
+                </div>
+
+                <div class="rank-node node-3">
+                    <img src="rank3.png" alt="Rank 3">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FENÊTRE 4 (DOCUMENT REFORMATÉ) -->
+    <section class="info-section align-center" style="background: url('image_fenetre_4.jpg') center/cover no-repeat;">
+        <div class="info-content document-layout" style="max-width: 1400px; width: 100%;">
+            
+            <!-- IMAGE CLICQUABLE À GAUCHE -->
+            <div class="doc-preview-wrapper">
+                <a href="https://verbena-feet-dc8.notion.site/CLUB-SPERANZA-34d575282c1d80d6af1ee94a0f408c56" class="doc-image-link" target="_blank">
+                    <!-- Assurez-vous d'avoir l'image de couverture du GDD dans le même dossier -->
+                    <img src="FullDoc.png" alt="Document Preview" class="doc-image">
+                </a>
+                <span class="doc-caption">CLICK HERE TO DOWNLOAD THE FULLY DESIGNED DOCUMENT ^</span>
+            </div>
+
+            <!-- TEXTE STRUCTURÉ À DROITE -->
+            <div class="doc-text-wrapper">
+                <h2>A 56 PAGE<br>DOCUMENT</h2>
+                
+                <p class="doc-author">This document designed by <strong>Emirhan A.</strong></p>
+                
+                <div class="doc-credentials">
+                    <span>Apex Legends Master</span>
+                    <span class="dot">&middot;</span>
+                    <span>Valorant Immortal 2 peak <em>(Radiant MMR)</em></span>
+                    <span class="dot">&middot;</span>
+                    <span class="highlight">400+ hours in ARC Raiders</span>
+                </div>
+                
+                <p class="doc-body-text">is the origin of this concept.</p>
+                
+                <p class="doc-cta-text">Check it out if you want more info about this mode!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="pvpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <div class="modal-title"><span>WHY PVP IS CAPPED LOW</span> &ndash; NATURAL CONTACT, NOT A FARMING SURFACE</div>
+            <p class="modal-text">The lowest cap is deliberate. PvP is designed as <em>natural contact</em>, not a strategy. Kills happen because teams rotate, courier, intercept — not because a team chose PvP as its scoring path. If PvP were uncapped or the highest pillar, the mode collapses into a team-deathmatch where raider-killing is the only thing that matters; the rest of the system becomes decoration. The cap ratio (PvE 1,300 > Loot 1,000 > PvP 700) teaches the player which axis to prioritise without ever writing a rule. A team that plays all three pillars together beats a team that leans on any one.</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION FLOTTANTE -->
+    <div class="floating-nav" id="floatingNav">
+        <div class="nav-dot" data-target="section-trials">
+            <span class="dot-label">Naturally Integrated</span>
+        </div>
+        <div class="nav-dot" data-target="section-pillars">
+            <span class="dot-label">Three Pillars</span>
+        </div>
+        <div class="nav-dot" data-target="section-progression">
+            <span class="dot-label">Progression</span>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+
+        // Écouteur pour gérer le scroll lorsqu'on clique sur les cartes
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                const targets = ['section-trials', 'section-pillars', 'section-progression'];
+                const targetElement = document.getElementById(targets[index]);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Toggle du Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggleBtn.textContent = 'Light Mode';
+            } else {
+                themeToggleBtn.textContent = 'Dark Mode';
+            }
+        });
+
+        // Apparition progressive des textes au défilement (Scroll Reveal)
+        const infoContents = document.querySelectorAll('.info-content');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        infoContents.forEach(content => {
+            observer.observe(content);
+        });
+
+        // Gestion de la Pop-up (Modal)
+        const modal = document.getElementById("pvpModal");
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.getElementById("closeModalBtn");
+
+        if(openBtn) {
+            openBtn.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                modal.classList.add('show');
+            });
+        }
+
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('show');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        // --- NAVIGATION FLOTTANTE (SCROLLSPY) ---
+        const floatingNav = document.getElementById('floatingNav');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const navDots = document.querySelectorAll('.nav-dot');
+        
+        const sections = [
+            document.getElementById('section-trials'),
+            document.getElementById('section-pillars'),
+            document.getElementById('section-progression')
+        ];
+
+        window.addEventListener('scroll', () => {
+            const scrollIndicatorPosition = scrollIndicator.getBoundingClientRect().top;
+            
+            if (scrollIndicatorPosition < 0) {
+                floatingNav.classList.add('is-visible');
+            } else {
+                floatingNav.classList.remove('is-visible');
+            }
+
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                if (!section) return;
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - window.innerHeight / 2)) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === currentSectionId) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetId = dot.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepts | Arc Raiders</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+        <div class="nav-logo-container">
+            <div class="dynamic-logo"></div>
+        </div>
+<div class="nav-links">
+    <a href="index.html" class="nav-speranza">Club Speranza</a>
+    <a href="concept2.html" class="nav-concept2">Green Hand</a>
+    <a href="concept3.html" class="nav-concept3">Concept 3</a>
+</div>
+        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
+            <div class="lang-flags">
+                <span class="flag active" title="English">ENG</span>
+                <a href="index-fr.html" style="text-decoration: none; color: inherit;">
+                    <span class="flag" title="Français">FR</span>
+                </a>
+            </div>
+            <button class="theme-btn" id="theme-toggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <header class="hero-container">
+        <div class="hero-bg"></div>
+        <h1>Club Speranza</h1>
+        <h2>A RANKED COMPETITIVE SYSTEM</h2>
+    </header>
+
+    <div class="overview-text">
+        here's a quick overview of the new mode
+    </div>
+
+    <section class="concept-grid" id="grid">
+        <div class="card" style="--card-bg-img: url('HC1.webp');">
+            <h3>NATURALLY INTEGRATED</h3>
+            <div class="card-info">
+                <p>New mode<br>Trials still exist</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('HC2.webp');">
+            <h3>THREE PILLARS</h3>
+            <div class="card-info">
+                <p>Player Vs Environment<br>Player Vs Player<br>Looting</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+        
+        <div class="card" style="--card-bg-img: url('HC3.webp');">
+            <h3>PROGRESSION</h3>
+            <div class="card-info">
+                <p>A ladder to show your skills<br>Engaging the PVP community</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator">
+        <span>scroll down for more info</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <!-- FENÊTRE 1 -->
+    <section class="info-section align-left" style="background: url('three_pillars_info.png') center 15%/cover no-repeat;">
+        <div class="info-content">
+            <h2>A MISSING PIECE</h2>
+            <p class="intro-text">The extraction loop is open-ended by design. You bring gear, you survive, the season ends, you bring gear again. Club Speranza gives that loop a ladder. Bring your gear. Pay an entry cost tied to your rank. Score across three pillars — PvP, PvE, Loot — and extract to bank it.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE TRIALS -->
+    <section id="section-trials" class="info-section align-center window-trials">
+        <div class="info-content">
+            <div class="trials-header">
+                <h2 class="trials-title">Normal, Ranked, Trials &mdash; <span>the closed loop.</span></h2>
+                <p class="trials-desc">Club Speranza is additive, not replacive. Normal raids become preparation. Trials stays as a weekly engagement surface. Ranked sits between them as the ladder. The three modes feed each other, and <em>the loot loop finally has a competitive destination.</em></p>
+            </div>
+            
+            <div class="loop-container">
+                <div class="loop-card light">
+                    <div class="loop-card-eyebrow">CASUAL</div>
+                    <h4>Normal Raids</h4>
+                    <p>Build gear. Learn maps. Loot loadouts. The preparation phase for competitive play, and the social heart of the game.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+                
+                <div class="loop-card dark">
+                    <div class="loop-card-eyebrow">COMPETITIVE</div>
+                    <h4>Club Speranza</h4>
+                    <p>Bring your gear. Pay the entry cost. Climb the ladder. The one place where elite extraction skill becomes a number on a leaderboard.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                        <path d="M3 3v5h5"></path>
+                    </svg>
+                </div>
+                
+                <div class="loop-card light">
+                    <div class="loop-card-eyebrow">ENGAGEMENT</div>
+                    <h4>Trials</h4>
+                    <p>Weekly challenge and reward loop &mdash; kept, not removed. Trials serves a different need than ranked and continues doing so.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 2 (Piliers) -->
+    <section id="section-pillars" class="info-section align-center window-2" style="background: url('window2_BG.avif') center/cover no-repeat;">
+        <div class="info-content">
+            <div class="window-2-layout">
+                <div class="schema-container">
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">01 &middot; PILLAR</div>
+                        <h3 class="schema-title">PVE</h3>
+                        <div class="schema-subtitle">TEAM CAP 1,300</div>
+                        <p class="schema-text">ARC kills. <br> Base value divided by three and credited to each living teammate at the moment of the kill. <br> Shares lost to death are destroyed, not redistributed. <br> ARCs also drop a small amount of loot across all tiers (scaled by rarity) — meaningful but deliberately below raider-carried loot.</p>
+                    </div>
+                    
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">02 &middot; PILLAR</div>
+                        <h3 class="schema-title">LOOT</h3>
+                        <div class="schema-subtitle">TEAM CAP 1,000</div>
+                        <p class="schema-text">Field-found coin value, converted at <em>1,000 coin = 1 point</em>.<br> A single player carries roughly 350,000 coin (at max) of field-found loot; three players together carry a theoretical maximum of 1,000,000 coin — the Loot cap in point form. <br> Entry loadout scores zero. Enemy loadout scores at full rate. Teammate loadout is returned on extraction but does not score.</p>
+                    </div>
+
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">03 &middot; PILLAR</div>
+                        <h3 class="schema-title">PVP</h3>
+                        <div class="schema-subtitle">TEAM CAP 700</div>
+                        <p class="schema-text">Raider kills. <br><strong>45 points per kill</strong>, credited to the killer. Loot taken from eliminated raiders counts under the Loot pillar — eliminating a raider has two score sources attached to it. <br>The cap at 700 equals ~16 kills, roughly half the lobby; reaching it takes most of the match and is a hard ceiling, not a target.</p>
+                        <a class="pvp-link" id="openModalBtn">WHY PVP IS CAPPED LOW ?</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel">
+                    <h2>ABOUT THE THREE PILLARS</h2>
+                    <p class="intro-text">Score in Club Speranza accumulates along three independent pillars. <br><br> <strong> Each has its own team-level cap: </strong> <br> <br> <em>Preventing any single-axis strategy from dominating. </em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 3 (Progression Visuelle) -->
+    <section id="section-progression" class="info-section align-left" style="background: url('image_fenetre_3.jpg') center/cover no-repeat;">
+        <div class="info-content progression-layout" style="max-width: 1600px; width: 100%;">
+            <div class="progression-text">
+                <h2>A VISUAL PROGRESSION</h2>
+                <p class="intro-text"> <em>The ladder to climb, making the PVPVE engaged in a more competitive way.</em> </p>
+            </div>
+
+            <div class="progression-visual">
+                <svg class="progression-svg" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 250 Q 600 230 1150 80" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10" />
+                    <circle cx="100" cy="250" r="8" fill="var(--accent)" />
+                    <circle cx="600" cy="198" r="8" fill="var(--accent)" />
+                    <circle cx="1150" cy="80" r="8" fill="var(--accent)" />
+                </svg>
+                <div class="rank-node node-1"><img src="rank1.png" alt="Rank 1"></div>
+                <div class="rank-node node-2"><img src="rank2.png" alt="Rank 2"></div>
+                <div class="rank-node node-3"><img src="rank3.png" alt="Rank 3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 4 (DOCUMENT REFORMATÉ) -->
+    <section class="info-section align-center" style="background: url('image_fenetre_4.jpg') center/cover no-repeat;">
+        <div class="info-content document-layout" style="max-width: 1400px; width: 100%;">
+            <div class="doc-preview-wrapper">
+                <a href="https://verbena-feet-dc8.notion.site/CLUB-SPERANZA-34d575282c1d80d6af1ee94a0f408c56" class="doc-image-link" target="_blank">
+                    <img src="FullDoc.png" alt="Document Preview" class="doc-image">
+                </a>
+                <span class="doc-caption">CLICK HERE TO DOWNLOAD THE FULLY DESIGNED DOCUMENT ^</span>
+            </div>
+
+            <div class="doc-text-wrapper">
+                <h2>A 56 PAGE<br>DOCUMENT</h2>
+                <p class="doc-author">This document designed by <strong>Emirhan A.</strong></p>
+                <div class="doc-credentials">
+                    <span>Apex Legends Master</span>
+                    <span class="dot">&middot;</span>
+                    <span>Valorant Immortal 2 peak <em>(Radiant MMR)</em></span>
+                    <span class="dot">&middot;</span>
+                    <span class="highlight">400+ hours in ARC Raiders</span>
+                </div>
+                <p class="doc-body-text">is the origin of this concept.</p>
+                <p class="doc-cta-text">Check it out if you want more info about this mode!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="pvpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <div class="modal-title"><span>WHY PVP IS CAPPED LOW</span> &ndash; NATURAL CONTACT, NOT A FARMING SURFACE</div>
+            <p class="modal-text">The lowest cap is deliberate. PvP is designed as <em>natural contact</em>, not a strategy. Kills happen because teams rotate, courier, intercept — not because a team chose PvP as its scoring path. If PvP were uncapped or the highest pillar, the mode collapses into a team-deathmatch where raider-killing is the only thing that matters; the rest of the system becomes decoration. The cap ratio (PvE 1,300 > Loot 1,000 > PvP 700) teaches the player which axis to prioritise without ever writing a rule. A team that plays all three pillars together beats a team that leans on any one.</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION FLOTTANTE -->
+    <div class="floating-nav" id="floatingNav">
+        <div class="nav-dot" data-target="section-trials"><span class="dot-label">Naturally Integrated</span></div>
+        <div class="nav-dot" data-target="section-pillars"><span class="dot-label">Three Pillars</span></div>
+        <div class="nav-dot" data-target="section-progression"><span class="dot-label">Progression</span></div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                const targets = ['section-trials', 'section-pillars', 'section-progression'];
+                const targetElement = document.getElementById(targets[index]);
+                if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            themeToggleBtn.textContent = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+        });
+
+        const infoContents = document.querySelectorAll('.info-content');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } 
+                else { entry.target.classList.remove('is-visible'); }
+            });
+        }, observerOptions);
+        infoContents.forEach(content => observer.observe(content));
+
+        const modal = document.getElementById("pvpModal");
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.getElementById("closeModalBtn");
+        if(openBtn) { openBtn.addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('show'); }); }
+        closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+
+        const floatingNav = document.getElementById('floatingNav');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const sections = [ document.getElementById('section-trials'), document.getElementById('section-pillars'), document.getElementById('section-progression') ];
+
+        window.addEventListener('scroll', () => {
+            if (scrollIndicator.getBoundingClientRect().top < 0) { floatingNav.classList.add('is-visible'); } 
+            else { floatingNav.classList.remove('is-visible'); }
+
+            let currentSectionId = '';
+            sections.forEach(section => {
+                if (!section) return;
+                if (pageYOffset >= (section.offsetTop - window.innerHeight / 2)) { currentSectionId = section.getAttribute('id'); }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === currentSectionId) { dot.classList.add('active'); }
+            });
+        });
+
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetSection = document.getElementById(dot.getAttribute('data-target'));
+                if (targetSection) { targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+    </script>
+</body>
+</html>

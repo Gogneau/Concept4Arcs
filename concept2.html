@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenhouse Concept | Arc Raiders</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- Appel du fichier CSS commun -->
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<!-- On remplace le style par une classe -->
+
+<body class="theme-greenhouse">
+
+    <nav>
+        <div class="nav-logo-container">
+            <div class="dynamic-logo"></div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-speranza">Club Speranza</a>
+            <a href="concept2.html" class="nav-concept2">Green Hand</a>
+            <a href="concept3.html" class="nav-concept3">Concept 3</a>
+        </div>
+        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
+            <div class="lang-flags">
+                <span class="flag active" title="English">ENG</span>
+                <a href="concept2-fr.html" style="text-decoration: none; color: inherit;">
+                    <span class="flag" title="Français">FR</span>
+                </a>
+            </div>
+            <button class="theme-btn" id="theme-toggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-container">
+        <div class="hero-bg" style="background-image: url('C2_HEROBG.webp');"></div>
+        <h1>The Green Hand Initiative</h1>
+        <h2>A GREENHOUSE CONCEPT SYSTEM</h2>
+    </header>
+
+    <div class="overview-text">
+        here's a quick overview of this new mechanic
+    </div>
+
+    <!-- TES HOVERCARDS -->
+    <section class="concept-grid" id="grid">
+
+        <div class="card" style="--card-bg-img: url('C2_HC1.webp');">
+            <h3>A NEW PROJECT: THE GREENHOUSE</h3>
+            <div class="card-info">
+                <p>A permanent and upgradable project<br></p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('C2_HC2.png');">
+            <h3>CULTIVATE AND HARVEST</h3>
+            <div class="card-info">
+                <p>Grow your own plant indoors</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('C2_HC3.png');">
+            <h3>COOK MEALS</h3>
+            <div class="card-info">
+                <p>New cooking station <br>Cook meals, receive small buffs</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('C2_HC4.png');">
+            <h3>HELP SPERANZA</h3>
+            <div class="card-info">
+                <p>Donate your harvest or topside plants<br>Receive Rewards and Merits</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="scroll-indicator">
+        <span>scroll down for more info</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+
+    <!-- FENÊTRE D'INTRODUCTION GLOBALE -->
+    <!-- FENÊTRE D'INTRODUCTION GLOBALE -->
+    <section class="info-section align-center" style="background: url('C2_INTROBG.webp') center/cover no-repeat;">
+        <div class="info-content">
+            <h2 class="title-with-icon">
+                <img src="Icon_Nature.png" alt="Nature Icon" class="section-icon">
+                A PEACEFUL LOOP
+            </h2>
+            <p class="intro-text">
+                The Green Hand Initiative is a concept gameplay loop focused on adding more purposes towards plants in
+                general. It adds a peaceful and pleasing layer to your underground life, giving a new purpose to your
+                extractions and a way to actively lore-friendly support Speranza's survival !
+                <br><br>
+                <span class="emphase-box">
+                    This concept also emphasizes giving projects <strong>AN ACTUAL PURPOSE</strong>.
+                </span>
+            </p>
+        </div>
+    </section>
+
+
+    <!-- SECTIONS D'INFORMATION (Cibles des clics sur les cartes) -->
+
+
+
+    <!-- CARTE 1 -->
+    <section id="section-concept-1" class="info-section align-center" style="background-color: var(--bg-main);">
+        <div class="info-content project-window-layout">
+
+            <div class="project-menu-container">
+                <!-- Icône déplacée à gauche de AVAILABLE PROJECTS -->
+                <div class="schema-eyebrow" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <img src="Icon_Projects_Menu.png" alt="Icon"
+                        style="width: 20px; height: 20px; filter: invert(66%) sepia(95%) saturate(3000%) hue-rotate(1deg) brightness(105%) contrast(105%);">
+                    Availabe Project
+                </div>
+
+                <div class="project-grid">
+                    <div class="project-card large-card" id="openProjectModalBtn">
+                        <div class="project-content" style="background-image: url('C2_HC1.webp');">
+                            <div class="project-title-bar">
+                                <span class="project-label">GREENHOUSE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-text-container">
+                <!-- Titre épuré (icône retirée d'ici) -->
+                <h2 class="title-with-icon">REBUILD NATURE INSIDE OF SPERANZA</h2>
+                <p class="intro-text">Unlock a personal, instanced <strong>Greenhouse Project</strong> next to your
+                    raider's Den. <br>This isn't just a prop; it is an interactive project that comes with multiple
+                    upgrades (click on the image to see a preview). </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL 0.5 -->
+    <div id="modal-0.5" class="modal">
+        <div class="modal-content game-modal" style="background-image: url('C2_HC1.webp');">
+            <span class="close-btn" id="closeModal05Btn">times;</span>
+
+            <div class="game-modal-left" id="modalLeftPanel">
+                <!-- TITRE PERMANENT RESTAURÉ -->
+                <div class="game-modal-eyebrow">INITIATIVE PROJECT</div>
+                <h2 class="game-modal-title">THE GREENHOUSE</h2>
+
+                <div id="state-purchase" class="modal-state">
+                    <p class="game-modal-desc">Speranza does not allow Raiders to use water freely, if you want to use it for your project, you first need to have an authorization.</p>
+
+                    <!-- NOUVELLE SECTION REQUIREMENT -->
+                    <div class="requirement-section">
+                        <div class="requirement-title">REQUIREMENT:</div>
+
+                        <div class="requirement-box">
+                            <div class="requirement-item">
+                                <!-- Base class + Modifier class -->
+                                <div class="item-slot rarity-legendary">
+                                    <img src="Security_Code.png" alt="Security Code" class="main-item-img">
+                                    <div class="item-bottom-bar">
+                                        <img src="Icon_Trinket.png" alt="Trinket" class="sub-item-icon">
+                                    </div>
+                                </div>
+
+                                <span class="req-text">Official Authorization for Water Exploitation</span>
+
+                            </div>
+
+                            <button class="purchase-btn-game" id="triggerPurchaseBtn">
+                                <span class="key-prompt">E</span> PURCHASE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="state-upgrades" class="modal-state hidden">
+                    <p class="game-modal-desc">Your Greenhouse is now fully operational. Upgrade your greenhouse, or visit it.</p>
+
+                    <div class="upgrade-section">
+                        <!-- NOUVELLE LIGNE UPGRADES GRASSE -->
+                        <div class="upgrade-section-title">UPGRADES</div>
+
+                        <div class="upgrade-grid">
+                            <!-- Upgrade 1 -->
+                            <div class="upgrade-card">
+                                <div class="upgrade-header">
+                                    <img src="positive_icon.webp" class="upgrade-icon" alt="UV Icon">
+                                    <span class="upgrade-title">UV LIGHTS</span>
+                                </div>
+                                <div class="upgrade-desc">Faster growing time.</div>
+                            </div>
+
+                            <!-- Upgrade 2 -->
+                            <div class="upgrade-card">
+                                <div class="upgrade-header">
+                                    <img src="positive_icon.webp" class="upgrade-icon" alt="Sprinkler Icon">
+                                    <span class="upgrade-title">SPRINKLERS</span>
+                                </div>
+                                <div class="upgrade-desc">Better crop yield.</div>
+                            </div>
+
+                            <!-- Upgrade 3 -->
+                            <div class="upgrade-card">
+                                <div class="upgrade-header">
+                                    <img src="positive_icon.webp" class="upgrade-icon" alt="Heater Icon">
+                                    <span class="upgrade-title">CONTROLLED HEATER</span>
+                                </div>
+                                <div class="upgrade-desc">Faster growing time.</div>
+                            </div>
+
+                            <!-- Upgrade 4 -->
+                            <div class="upgrade-card">
+                                <div class="upgrade-header">
+                                    <img src="positive_icon.webp" class="upgrade-icon" alt="Soil Icon">
+                                    <span class="upgrade-title">BETTER SOIL</span>
+                                </div>
+                                <div class="upgrade-desc">Ability to grow special crops.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="purchase-btn-game" style="margin-top: auto;">
+                        <span class="key-prompt">E</span> ENTER GREENHOUSE
+                    </button>
+                </div>
+            </div>
+            <div class="game-modal-right"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- CARTE 2 : SEEDS OF TOMORROW AVEC ICÔNES INTERACTIVES -->
+    <!-- Changement de align-right vers align-left -->
+    <section id="section-concept-2" class="info-section align-left"
+        style="background: url('C2_W3BG.png') center/cover no-repeat; --section-opacity: 0;">
+
+        <div class="info-content seeds-main-layout">
+
+            <!-- 1. Le panneau (fixé à gauche) -->
+            <div class="glass-panel fixed-panel">
+                <h2 class="schema-title">SEEDS OF TOMORROW</h2>
+                <p class="intro-text">Plants or seeds that you scavenge topside now can be cultivated in your
+                    greenhouse: </p>
+                <p class="intro-text" style="margin-top: 15x;"><strong> They grow in real times.</strong></p>
+                <p class="intro-text" style="margin-top: 0px;"><strong> You can only grow 24 plants at a time.</strong>
+                </p>
+                <p class="intro-text" style="margin-top: 10px;"><em>Some plants can be found in special condition or
+                        rarely in the seed vault of Stella Montis.</em></p>
+            </div>
+
+
+        </div>
+
+        </div>
+    </section>
+
+
+
+
+    <!-- CARTE 3 : GASTRONOMIE -->
+    <section id="section-concept-3" class="info-section align-center" style="background-color: var(--bg-main);">
+        <div class="info-content" style="width: 100%; max-width: 1200px;">
+
+            <!-- Le titre avec l'icône centrée -->
+            <!-- Le titre avec l'icône centrée -->
+            <h2 class="title-with-icon" style="justify-content: center;">
+                <img src="Food.png" alt="Food Icon" class="section-icon food-icon">
+                SURVIVAL GASTRONOMY
+            </h2>
+
+            <p class="intro-text" style="margin-bottom: 50px;">
+                <em>"A well-fed Raider is a deadly Raider."</em><br>
+                Use your harvested crops at the new Cooking Station to prepare meals before or in-raids. They are small
+                buff items, providing another gameplay purpose for plants. <strong>Here are some examples:</strong>
+            </p>
+            <!-- LES 5 CARTES DE REPAS -->
+            <div class="meals-grid">
+
+                <!-- Repas 1 -->
+                <div class="meal-card" style="background-image: url('meal1.png');">
+                    <div class="meal-hover-desc">Keep you more warm outside of a cold snap.</div>
+                    <div class="meal-title-bar">
+                        <span class="meal-title">CANDLEBERRY SYRUP</span>
+                        <span class="meal-qty">5/5</span>
+                    </div>
+                </div>
+
+                <!-- Repas 2 -->
+                <div class="meal-card" style="background-image: url('meal2.png');">
+                    <div class="meal-hover-desc">Slightly increased stamina recovery for 15 minutes.</div>
+                    <div class="meal-title-bar">
+                        <span class="meal-title">SMASHED VEGETABLES</span>
+                        <span class="meal-qty">3/3</span>
+                    </div>
+                </div>
+
+                <!-- Repas 3 -->
+                <div class="meal-card" style="background-image: url('meal3.png');">
+                    <div class="meal-hover-desc">Minor boost to sprint speed when out of combat.</div>
+                    <div class="meal-title-bar">
+                        <span class="meal-title">TOPSIDE TEA</span>
+                        <span class="meal-qty">5/5</span>
+                    </div>
+                </div>
+
+                <!-- Repas 4 -->
+                <div class="meal-card" style="background-image: url('meal4.png');">
+                    <div class="meal-hover-desc">Slow passive health regeneration over time.</div>
+                    <div class="meal-title-bar">
+                        <span class="meal-title">SHROOM SOUP</span>
+                        <span class="meal-qty">2/2</span>
+                    </div>
+                </div>
+
+                <!-- Repas 5 -->
+                <div class="meal-card" style="background-image: url('meal5.png');">
+                    <div class="meal-hover-desc">Have slightly more chance to find rarer items.</div>
+                    <div class="meal-title-bar">
+                        <span class="meal-title">SPERANZA SPECIALTY</span>
+                        <span class="meal-qty">1/1</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- CARTE 4 : HELP SPERANZA -->
+    <section id="section-concept-4" class="info-section align-center help-speranza-bg">
+        <div class="info-content dual-box-layout">
+
+            <!-- CASE DE GAUCHE (À modifier plus tard) -->
+            <div class="glass-panel left-modifier-box">
+                <p class="intro-text" style="text-align: center; opacity: 0.5;">
+                    [ Espace réservé pour la modification ]
+                </p>
+            </div>
+
+            <!-- CASE DE DROITE (Titre et Description) -->
+            <div class="glass-panel right-info-box">
+                <h2 class="schema-title">HELPING SPERANZA</h2>
+                <p class="intro-text">
+                    Celeste heard that raiders are now growing their own plants, she has now establish a new program: the green hand, a <strong> milestone-type</strong> system based on your daily and weekly donation ! Earn Merits and buffs through her new program 
+                </p>
+                <p class="intro-text" style="margin-top: 20px;">
+                    In return, earn <strong>Food Merits</strong>, unique cosmetics, and increased standing with
+                    Speranza's quartermasters. You aren't just fighting for survival anymore; <em>you are feeding the
+                        future.</em>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FENÊTRE REDDIT / OUTRO -->
+    <section class="info-section align-center" style="border-top: 4px solid var(--accent); min-height: 40vh;">
+        <div class="info-content" style="text-align: center;">
+            <h2>JOIN THE DISCUSSION</h2>
+            <p class="intro-text" style="margin-bottom: 30px;">I initially designed this concept to see how a non-combat
+                loop could fit into ARC Raiders. I'd love to hear your thoughts, feedback, and ideas on how farming and
+                cooking could improve our life in Speranza. Come chat with me and the community!</p>
+
+            <!-- Remplace le # par ton vrai lien Reddit -->
+            <a href="#" target="_blank"
+                style="display: inline-block; background-color: var(--accent); color: #fff; padding: 15px 30px; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border-radius: 5px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                Read the original Reddit Post
+            </a>
+        </div>
+    </section>
+
+    <!-- SCRIPT -->
+    <script>
+        // 1. Gestion du clic sur les cartes pour scroller vers la bonne section
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function (e) {
+                const targets = ['section-concept-1', 'section-concept-2', 'section-concept-3', 'section-concept-4'];
+                const targetElement = document.getElementById(targets[index]);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // 2. Toggle du Dark Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggleBtn.textContent = 'Light Mode';
+            } else {
+                themeToggleBtn.textContent = 'Dark Mode';
+            }
+        });
+
+        // 3. Apparition progressive des textes au défilement (Scroll Reveal)
+        const infoContents = document.querySelectorAll('.info-content');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                } else {
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        infoContents.forEach(content => {
+            observer.observe(content);
+        });
+
+
+        // --- GESTION DU MODAL 0.5 ---
+        const projectModal = document.getElementById("modal-0.5");
+        const openProjectBtn = document.getElementById("openProjectModalBtn");
+        const closeProjectBtn = document.getElementById("closeModal05Btn");
+
+        // 1. Ouvrir la fenêtre au clic sur la grande carte
+        if (openProjectBtn && projectModal) {
+            openProjectBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                projectModal.classList.add('show');
+            });
+        }
+
+        // 2. Fermer la fenêtre au clic sur la petite croix (X)
+        if (closeProjectBtn && projectModal) {
+            closeProjectBtn.addEventListener('click', function () {
+                projectModal.classList.remove('show');
+            });
+        }
+
+        // 3. Fermer la fenêtre si on clique dans le vide (autour de la fenêtre)
+        window.addEventListener('click', function (event) {
+            if (event.target === projectModal) {
+                projectModal.classList.remove('show');
+            }
+        });
+
+        // --- LOGIQUE D'ACHAT DU PROJET (TRANSITION D'ÉTAT) ---
+        const triggerPurchaseBtn = document.getElementById("triggerPurchaseBtn");
+        const modalLeftPanel = document.getElementById("modalLeftPanel");
+        const statePurchase = document.getElementById("state-purchase");
+        const stateUpgrades = document.getElementById("state-upgrades");
+
+        if (triggerPurchaseBtn) {
+            triggerPurchaseBtn.addEventListener('click', function () {
+                // 1. Agrandit le panneau vers la droite
+                modalLeftPanel.classList.add("expanded");
+
+                // 2. Cache la section d'achat
+                statePurchase.classList.add("hidden");
+
+                // 3. Affiche la section des améliorations (avec la grille et le nouveau bouton)
+                stateUpgrades.classList.remove("hidden");
+            });
+        }
+
+        // Optionnel mais propre : Réinitialiser la fenêtre quand on la ferme
+        const closeBtn = document.getElementById("closeModal05Btn");
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
+                projectModal.classList.remove('show');
+                // Reset l'état au cas où on réouvre le menu plus tard
+                setTimeout(() => {
+                    modalLeftPanel.classList.remove("expanded");
+                    stateUpgrades.classList.add("hidden");
+                    statePurchase.classList.remove("hidden");
+                }, 300); // Attend la fin de l'animation de fermeture
+            });
+        }
+    </script>
+</body>
+
+</html>

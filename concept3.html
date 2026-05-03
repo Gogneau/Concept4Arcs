@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 3 | Arc Raiders</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+        <div class="nav-logo-container">
+            <div class="dynamic-logo"></div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Club Speranza</a>
+            <a href="concept2.html">Concept 2</a>
+            <a href="concept3.html" style="color: var(--accent);">Concept 3</a>
+        </div>
+        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
+            <div class="lang-flags">
+                <span class="flag active" title="English">ENG</span>
+                <a href="concept3-fr.html" style="text-decoration: none; color: inherit;">
+                    <span class="flag" title="Français">FR</span>
+                </a>
+            </div>
+            <button class="theme-btn" id="theme-toggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <header class="hero-container">
+        <!-- Pense à changer l'image de fond ici -->
+        <div class="hero-bg" style="background-image: url('concept3_BG.jpg');"></div>
+        <h1>Concept 3 Title</h1>
+        <h2>EXPLORING NEW HORIZONS</h2>
+    </header>
+
+    <div class="overview-text">
+        here's a quick overview of this third concept
+    </div>
+
+    <section class="concept-grid" id="grid">
+        <div class="card" style="--card-bg-img: url('Image_C3_1.webp');">
+            <h3>FIRST KEY POINT</h3>
+            <div class="card-info">
+                <p>Brief description of the mechanic.<br>Secondary explanation.</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('Image_C3_2.webp');">
+            <h3>SECOND KEY POINT</h3>
+            <div class="card-info">
+                <p>Why this aspect matters.<br>What it changes in the game.</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+        
+        <div class="card" style="--card-bg-img: url('Image_C3_3.webp');">
+            <h3>THIRD KEY POINT</h3>
+            <div class="card-info">
+                <p>The impact on global progression.<br>Rewards system.</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator">
+        <span>scroll down for more info</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <!-- FENÊTRE 1 -->
+    <section id="section-c3-1" class="info-section align-center" style="background-color: var(--card-bg-closed);">
+        <div class="info-content">
+            <h2>DETAIL OF POINT 1</h2>
+            <p class="intro-text">Here you can expand on the first idea presented in your first hovercard. The style of this window uses the same rules as the main page.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 2 -->
+    <section id="section-c3-2" class="info-section align-left">
+        <div class="info-content">
+            <h2>DETAIL OF POINT 2</h2>
+            <p class="intro-text">In-depth explanation of the second element. The left alignment creates visual dynamism as the user scrolls down the page.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 3 -->
+    <section id="section-c3-3" class="info-section align-right" style="background-color: var(--card-bg-closed);">
+        <div class="info-content">
+            <h2>DETAIL OF POINT 3</h2>
+            <p class="intro-text">Final section related to the third hovercard. The text fade-in animation triggers automatically thanks to the observer script.</p>
+        </div>
+    </section>
+
+    <script>
+        // Gestion du clic sur les cartes
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                const targets = ['section-c3-1', 'section-c3-2', 'section-c3-3'];
+                const targetElement = document.getElementById(targets[index]);
+                if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+
+        // Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            themeToggleBtn.textContent = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // Scroll Reveal Animation
+        const infoContents = document.querySelectorAll('.info-content');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } 
+                else { entry.target.classList.remove('is-visible'); }
+            });
+        }, observerOptions);
+        infoContents.forEach(content => observer.observe(content));
+    </script>
+</body>
+</html>

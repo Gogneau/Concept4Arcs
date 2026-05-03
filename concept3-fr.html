@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 3 | Arc Raiders</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+        <div class="nav-logo-container">
+            <div class="dynamic-logo"></div>
+        </div>
+        <div class="nav-links">
+            <a href="index-fr.html">Club Speranza</a>
+            <a href="concept2-fr.html">Concept 2</a>
+            <a href="concept3-fr.html" style="color: var(--accent);">Concept 3</a>
+        </div>
+        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
+            <div class="lang-flags">
+                <a href="concept3.html" style="text-decoration: none; color: inherit;">
+                    <span class="flag" title="English">ENG</span>
+                </a>
+                <span class="flag active" title="Français">FR</span>
+            </div>
+            <button class="theme-btn" id="theme-toggle">Mode Sombre</button>
+        </div>
+    </nav>
+
+    <header class="hero-container">
+        <!-- Pense à changer l'image de fond ici -->
+        <div class="hero-bg" style="background-image: url('concept3_BG.jpg');"></div>
+        <h1>Nom du Concept 3</h1>
+        <h2>EXPLORATION DE NOUVEAUX HORIZONS</h2>
+    </header>
+
+    <div class="overview-text">
+        voici un aperçu rapide de ce troisième concept
+    </div>
+
+    <section class="concept-grid" id="grid">
+        <div class="card" style="--card-bg-img: url('Image_C3_1.webp');">
+            <h3>PREMIER POINT CLÉ</h3>
+            <div class="card-info">
+                <p>Brève description de la mécanique.<br>Explication secondaire.</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+            </div>
+        </div>
+
+        <div class="card" style="--card-bg-img: url('Image_C3_2.webp');">
+            <h3>DEUXIÈME POINT CLÉ</h3>
+            <div class="card-info">
+                <p>Pourquoi cet aspect est important.<br>Ce que ça change en jeu.</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+            </div>
+        </div>
+        
+        <div class="card" style="--card-bg-img: url('Image_C3_3.webp');">
+            <h3>TROISIÈME POINT CLÉ</h3>
+            <div class="card-info">
+                <p>L'impact sur la progression globale.<br>Système de récompenses.</p>
+                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator">
+        <span>défilez vers le bas pour plus d'infos</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <!-- FENÊTRE 1 -->
+    <section id="section-c3-1" class="info-section align-center" style="background-color: var(--card-bg-closed);">
+        <div class="info-content">
+            <h2>DÉTAIL DU POINT 1</h2>
+            <p class="intro-text">Ici, tu peux développer la première idée présentée dans ta première hovercard. Le style de cette fenêtre reprend les mêmes codes que la page principale.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 2 -->
+    <section id="section-c3-2" class="info-section align-left">
+        <div class="info-content">
+            <h2>DÉTAIL DU POINT 2</h2>
+            <p class="intro-text">Explication approfondie du deuxième élément. L'alignement à gauche crée un dynamisme visuel pendant que l'utilisateur fait défiler la page vers le bas.</p>
+        </div>
+    </section>
+
+    <!-- FENÊTRE 3 -->
+    <section id="section-c3-3" class="info-section align-right" style="background-color: var(--card-bg-closed);">
+        <div class="info-content">
+            <h2>DÉTAIL DU POINT 3</h2>
+            <p class="intro-text">Dernière section liée à la troisième hovercard. L'animation d'apparition du texte s'activera toute seule grâce au script d'observation.</p>
+        </div>
+    </section>
+
+    <script>
+        // Gestion du clic sur les cartes
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.addEventListener('click', function(e) {
+                const targets = ['section-c3-1', 'section-c3-2', 'section-c3-3'];
+                const targetElement = document.getElementById(targets[index]);
+                if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
+
+        // Dark Mode Toggle (avec texte en français)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            themeToggleBtn.textContent = document.body.classList.contains('dark-theme') ? 'Mode Clair' : 'Mode Sombre';
+        });
+
+        // Scroll Reveal Animation
+        const infoContents = document.querySelectorAll('.info-content');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } 
+                else { entry.target.classList.remove('is-visible'); }
+            });
+        }, observerOptions);
+        infoContents.forEach(content => observer.observe(content));
+    </script>
+</body>
+</html>
