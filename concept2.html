@@ -305,7 +305,7 @@
 
                 <!-- Repas 1 -->
                 <div class="meal-card" style="background-image: url('meal1.png');">
-                    <div class="meal-hover-desc">Keep you more warm outside of a cold snap.</div>
+                    <div class="meal-hover-desc">Keep you more warm outside in a cold snap.</div>
                     <div class="meal-title-bar">
                         <span class="meal-title">CANDLEBERRY SYRUP</span>
                         <span class="meal-qty">5/5</span>
@@ -360,23 +360,99 @@
     <section id="section-concept-4" class="info-section align-center help-speranza-bg">
         <div class="info-content dual-box-layout">
 
-            <!-- CASE DE GAUCHE (À modifier plus tard) -->
-            <div class="glass-panel left-modifier-box">
-                <p class="intro-text" style="text-align: center; opacity: 0.5;">
-                    [ Espace réservé pour la modification ]
-                </p>
+<!-- TABLEAU DES CONTRATS ET DONATIONS -->
+<div class="glass-panel left-modifier-box donation-board-container">
+    
+    <!-- COLONNE GAUCHE : Contrat Journalier -->
+    <div class="daily-contract-panel">
+        <div class="contract-header-pill">DAILY CONTRACT</div>
+        <div class="contract-card">
+            <span class="difficulty-tag">NORMAL</span>
+            <h4 class="contract-title">HARVEST GREAT MULLEIN</h4>
+            <p class="contract-desc">Find and harvest <strong>Great Mullein</strong>.</p>
+            
+            <div class="contract-progress">
+                <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%;"></div></div>
+                <span class="mini-progress-text">0/20</span>
             </div>
+            
+            <div class="contract-rewards-section">
+                <span class="rewards-label">Rewards:</span>
+                <div class="reward-icons">
+                    <div class="reward-item">
+                        <img src="Coin.webp" alt="Materials"> <!-- Remplace par ton icône -->
+                        <span>9k</span>
+                    </div>
+                    <div class="reward-item">
+                        <img src="positive_icon.webp" alt="Merits"> <!-- Remplace par ton icône -->
+                        <span>100</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn-yellow-accept">ACCEPT</button>
+        </div>
+    </div>
+
+   <!-- COLONNE DROITE : Weekly Donation -->
+    <div class="weekly-donation-panel">
+        
+        <!-- On ne garde que le tag jaune en haut -->
+        <div class="top-tags-row">
+            <span class="tag-yellow">THE GREEN HAND INITIATIVE</span>
+        </div>
+        
+        <p class="donation-lore">
+            With the recent shortage of food, Celeste is sponsoring a reward program for raiders who donates their crops.
+        </p>
+        
+        <!-- LE TAG NOIR DESCENDU ICI, groupé avec le titre -->
+        <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+            
+            <div class="progress-section-title">
+                <h4>DONATION PROGRESS BAR:</h4>
+            </div>
+            <span class="tag-black">WEEKLY DONATION</span>
+        </div>
+        
+        <!-- Timer & Bulle Info -->
+        <div class="weekly-timer-row">
+            <span class="timer-text" id="weekly-timer">RESETS IN: --d --h --m</span>
+            <div class="info-bubble" data-tooltip="Reset every sunday">i</div>
+        </div>
+
+        <!-- Barre de progression -->
+        <div class="big-progress-wrapper">
+            <div class="big-progress-track">
+                <div class="big-progress-fill" style="width: 74%;"></div> 
+            </div>
+            <div class="progress-numbers">74 / 100 CROPS DONATED</div>
+        </div>
+
+        <!-- Les Buffs -->
+        <div class="donation-buffs">
+            <div class="buffs-condition">WHEN FULL:</div>
+            <ul>
+                <li><strong>+6kg</strong> carrying capacity for your Raider.</li>
+                <li>Better items found by <strong>Scrappy</strong>.</li>
+                <li><strong>+5%</strong> maximum stamina.</li>
+            </ul>
+            <span class="tag-black">You can always give more than 100 crops per week.</span>
+        </div>
+        
+        <hr class="donation-separator">
+        
+        <button class="btn-pill-black">SEE THE PROGRAM MILESTONES</button>
+    </div>
+
+
+</div>
 
             <!-- CASE DE DROITE (Titre et Description) -->
             <div class="glass-panel right-info-box">
                 <h2 class="schema-title">HELPING SPERANZA</h2>
                 <p class="intro-text">
-                    Celeste heard that raiders are now growing their own plants, she has now establish a new program: the green hand, a <strong> milestone-type</strong> system based on your daily and weekly donation ! Earn Merits and buffs through her new program 
-                </p>
-                <p class="intro-text" style="margin-top: 20px;">
-                    In return, earn <strong>Food Merits</strong>, unique cosmetics, and increased standing with
-                    Speranza's quartermasters. You aren't just fighting for survival anymore; <em>you are feeding the
-                        future.</em>
+                 <br>  <em>  Celeste heard that raiders are now growing their own plants and has establish a new program: the green hand initiative, a <strong> milestone-type</strong> system based on your total number of crops donated ! Earn Merits and buffs through her new program, and help rebuilding and reinforcing Speranza. </em> 
                 </p>
             </div>
 
@@ -386,10 +462,9 @@
     <!-- FENÊTRE REDDIT / OUTRO -->
     <section class="info-section align-center" style="border-top: 4px solid var(--accent); min-height: 40vh;">
         <div class="info-content" style="text-align: center;">
-            <h2>JOIN THE DISCUSSION</h2>
-            <p class="intro-text" style="margin-bottom: 30px;">I initially designed this concept to see how a non-combat
-                loop could fit into ARC Raiders. I'd love to hear your thoughts, feedback, and ideas on how farming and
-                cooking could improve our life in Speranza. Come chat with me and the community!</p>
+            <h2>About me</h2>
+            <p class="intro-text" style="margin-bottom: 30px;">Hi i'm Gogneau, I initially designed this concept to see how a non-combat
+                loop could fit into ARC Raiders. I know there's 99% chance that my concept will never see the day but i don't care, i'm loving to share some concept of my favorite game with you all !</p>
 
             <!-- Remplace le # par ton vrai lien Reddit -->
             <a href="#" target="_blank"
@@ -399,7 +474,19 @@
         </div>
     </section>
 
-    <!-- SCRIPT -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- SCRIPT -->-------------------------------------------------------------------------------------------------------------------------------------------------------
     <script>
         // 1. Gestion du clic sur les cartes pour scroller vers la bonne section
         const cards = document.querySelectorAll('.card');
@@ -505,6 +592,44 @@
             });
         }
     </script>
+
+
+
+<script>
+// Timer dynamique pour le reset du dimanche
+function updateWeeklyTimer() {
+    const now = new Date();
+    const nextSunday = new Date();
+    
+    // Calcule le prochain dimanche
+    nextSunday.setDate(now.getDate() + (7 - now.getDay()) % 7);
+    nextSunday.setHours(23, 59, 59, 999);
+    
+    // Si on est déjà dimanche, on cible le dimanche suivant
+    if (now.getDay() === 0 && now.getHours() > 0) {
+       nextSunday.setDate(now.getDate() + 6);
+    }
+
+    const diff = nextSunday - now;
+
+    // Convertit la différence en Jours, Heures, Minutes
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    const timerElement = document.getElementById('weekly-timer');
+    if(timerElement) {
+        timerElement.innerText = `RESETS IN: ${days}d ${hours}h ${minutes}m`;
+    }
+}
+
+// Mise à jour immédiate puis toutes les 60 secondes
+updateWeeklyTimer();
+setInterval(updateWeeklyTimer, 60000);
+</script>
+
+
+
 </body>
 
 </html>

@@ -1933,31 +1933,39 @@ body.dark-theme .food-icon {
     --section-opacity: 0.6; /* Fond sombre pour faire ressortir les cases */
 }
 
-/* Layout à deux colonnes */
+#section-concept-4 {
+    padding-left: 3% !important;  /* Pousse le contenu jusqu'au bord gauche (au lieu de 10%) */
+    padding-right: 3% !important; /* Pareil à droite pour équilibrer */
+}
+
+/* 2. On autorise le conteneur à prendre toute cette nouvelle place */
 .dual-box-layout {
     display: flex !important;
     flex-direction: row !important;
-    gap: 40px;
+    gap: 60px;
     width: 100%;
-    max-width: 1400px !important;
-    justify-content: center;
+    max-width: 1800px !important; /* On passe de 1400px à 1800px pour couvrir les grands écrans */
+    justify-content: flex-start; /* On force l'alignement pour que ça démarre bien à gauche */
+    align-items: center; 
+    padding: 30px 0; 
 }
 
-/* Case de gauche (Modifiable) */
+/* 3. On donne un appétit d'ogre à la case de gauche */
 .left-modifier-box {
-    flex: 1.2;
+    flex: 2.8; /* La case blanche va maintenant prendre 2.8 fois plus de place que la case de droite */
     min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-left: none !important;
-    border-right: 4px solid var(--accent); /* Bordure accentuée à droite */
+    border-right: 4px solid var(--accent);
 }
 
-/* Case de droite (Titre + Texte) */
+/* 4. On garde la case de droite compacte */
 .right-info-box {
-    flex: 1;
+    flex: 1; /* Reste à 1, ce qui permet à la case de gauche de la pousser vers la droite */
     text-align: left;
+    padding: 40px;
 }
 
 /* Adaptation pour les petits écrans */
@@ -1969,3 +1977,316 @@ body.dark-theme .food-icon {
         width: 100%;
     }
 }
+
+
+/* --- BOUNTY BOARD (CONTRATS & DONATIONS) --- */
+
+.donation-board-container {
+    background-color: #ffffff !important; /* Fond blanc comme sur l'image */
+    display: flex;
+    flex-direction: row; /* Met le contrat à gauche et la donation à droite */
+    padding: 20px !important;
+    gap: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    color: #000; /* Texte noir sur fond blanc */
+    
+}
+
+/* --- COLONNE GAUCHE : DAILY CONTRACT --- */
+.daily-contract-panel {
+    background-color: #8c9199; /* Gris du fond du contrat */
+    border-radius: 12px;
+    padding: 15px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contract-header-pill {
+    background-color: #0a0b10;
+    color: #fff;
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.contract-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.difficulty-tag {
+    background-color: #ff3333; /* Rouge pour Hard, tu peux changer en vert/bleu pour normal */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    align-self: flex-start;
+}
+
+.contract-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.contract-desc {
+    font-size: 0.85rem;
+    color: #333;
+    margin: 0;
+}
+
+.contract-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.mini-bar-bg {
+    flex-grow: 1;
+    height: 14px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background: #fff;
+}
+
+.mini-bar-fill {
+    height: 100%;
+    background: #000;
+    border-radius: 50px;
+}
+
+.mini-progress-text {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.contract-rewards-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rewards-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.reward-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.reward-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.reward-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: #f0f0f0;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.btn-yellow-accept {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-yellow-accept:hover { background-color: #e6b800; }
+
+/* --- COLONNE DROITE : WEEKLY DONATION --- */
+.weekly-donation-panel {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top-tags-row {
+    display: flex;
+    gap: 10px;
+}
+
+.tag-yellow { background-color: #70d81b; color: #000; padding: 6px 60px; font-weight: 800; font-size: 0.8rem; }
+.tag-black { background-color: #0a0b10; color: #fff; padding: 4px 15px; font-weight: 800; font-size: 0.8rem; border-radius: 50px; }
+
+.donation-lore {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.progress-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-icon { width: 40px; height: 40px; }
+.progress-section-title h4 { margin: 0; font-size: 1.2rem; font-weight: 900; }
+
+/* La grosse barre de l'image */
+.big-progress-wrapper {
+    background-color: #8c9199; /* Gros contour gris */
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.big-progress-track {
+    background-color: #ffffff; /* Intérieur blanc */
+    height: 35px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.big-progress-fill {
+    background-color: #ffcc00; /* Remplissage jaune Arc */
+    height: 100%;
+}
+
+.progress-numbers {
+    text-align: right;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+/* Liste des Buffs */
+.donation-buffs ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #222;
+}
+
+.donation-buffs li {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.donation-separator {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* Bouton See the program */
+.btn-pill-black {
+    background-color: #0a0b10;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-pill-black:hover { transform: scale(1.02); }
+
+/* Faire respirer la case principale */
+.donation-board-container {
+    padding: 35px !important; /* Plus de padding intérieur */
+    gap: 45px; /* Plus d'espace entre la gauche et la droite */
+}
+
+/* On donne plus de place à la colonne de droite pour étirer la barre */
+.daily-contract-panel { width: 35%; }
+.weekly-donation-panel { width: 65%; }
+
+
+/* --- TIMER & INFO BUBBLE --- */
+.weekly-timer-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: -5px; /* Le rapproche légèrement de la barre grise */
+}
+
+.timer-text {
+    font-weight: 800;
+    color: #ff3333; /* Rouge alerte pour le timer, ou noir si tu préfères */
+    font-size: 0.85rem;
+}
+
+/* La bulle 'i' */
+.info-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: #ccc;
+    color: #000;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: serif;
+    cursor: help;
+    position: relative;
+}
+
+/* L'infobulle qui apparaît au hover */
+.info-bubble::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0a0b10;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.info-bubble:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- BUFFS --- */
+.buffs-condition {
+    font-weight: 900;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #000;
+}
+
