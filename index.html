@@ -13,25 +13,6 @@
 </head>
 <body>
 
-<nav>
-        <div class="nav-logo-container">
-            <div class="dynamic-logo"></div>
-        </div>
-<div class="nav-links">
-    <a href="index.html" class="nav-speranza">Club Speranza</a>
-    <a href="concept2.html" class="nav-concept2">Green Hand</a>
-    <a href="concept3.html" class="nav-concept3">Concept 3</a>
-</div>
-        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
-            <div class="lang-flags">
-                <span class="flag active" title="English">ENG</span>
-                <a href="index-fr.html" style="text-decoration: none; color: inherit;">
-                    <span class="flag" title="Français">FR</span>
-                </a>
-            </div>
-            <button class="theme-btn" id="theme-toggle">Dark Mode</button>
-        </div>
-    </nav>
 
     <header class="hero-container">
         <div class="hero-bg"></div>
@@ -238,11 +219,6 @@
             });
         });
 
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        themeToggleBtn.addEventListener('click', function() {
-            document.body.classList.toggle('dark-theme');
-            themeToggleBtn.textContent = document.body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
-        });
 
         const infoContents = document.querySelectorAll('.info-content');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -289,5 +265,8 @@
             });
         });
     </script>
+
+
+<script src="navbar.js"></script>
 </body>
 </html>

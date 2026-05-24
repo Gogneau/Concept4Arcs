@@ -10,37 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
 
-    <!-- Appel du fichier CSS commun -->
     <link rel="stylesheet" href="style.css">
 
-
-
 </head>
-<!-- On remplace le style par une classe -->
 
 <body class="theme-greenhouse">
 
-    <nav>
-        <div class="nav-logo-container">
-            <div class="dynamic-logo"></div>
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="nav-speranza">Club Speranza</a>
-            <a href="concept2.html" class="nav-concept2">Green Hand</a>
-            <a href="concept3.html" class="nav-concept3">Concept 3</a>
-        </div>
-        <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
-            <div class="lang-flags">
-                <span class="flag active" title="English">ENG</span>
-                <a href="concept2-fr.html" style="text-decoration: none; color: inherit;">
-                    <span class="flag" title="Français">FR</span>
-                </a>
-            </div>
-            <button class="theme-btn" id="theme-toggle">Dark Mode</button>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
     <header class="hero-container">
         <div class="hero-bg" style="background-image: url('C2_HEROBG.webp');"></div>
         <h1>The Green Hand Initiative</h1>
@@ -48,10 +23,9 @@
     </header>
 
     <div class="overview-text">
-        here's a quick overview of this new mechanic
+        Here's a quick overview of this new mechanic
     </div>
 
-    <!-- TES HOVERCARDS -->
     <section class="concept-grid" id="grid">
 
         <div class="card" style="--card-bg-img: url('C2_HC1.webp');">
@@ -65,7 +39,7 @@
         <div class="card" style="--card-bg-img: url('C2_HC2.png');">
             <h3>CULTIVATE AND HARVEST</h3>
             <div class="card-info">
-                <p>Grow your own plant indoors</p>
+                <p>Grow your own plants indoors</p>
                 <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Click to read more</p>
             </div>
         </div>
@@ -97,8 +71,6 @@
     </div>
 
 
-    <!-- FENÊTRE D'INTRODUCTION GLOBALE -->
-    <!-- FENÊTRE D'INTRODUCTION GLOBALE -->
     <section class="info-section align-center" style="background: url('C2_INTROBG.webp') center/cover no-repeat;">
         <div class="info-content">
             <h2 class="title-with-icon">
@@ -106,9 +78,9 @@
                 A PEACEFUL LOOP
             </h2>
             <p class="intro-text">
-                The Green Hand Initiative is a concept gameplay loop focused on adding more purposes towards plants in
-                general. It adds a peaceful and pleasing layer to your underground life, giving a new purpose to your
-                extractions and a way to actively lore-friendly support Speranza's survival !
+                The Green Hand Initiative is a concept gameplay loop focused on giving plants more purpose in general.
+                 It adds a peaceful and pleasing layer to your underground life, giving a new purpose to your
+                extractions and providing a lore-friendly way to actively support Speranza's survival!
                 <br><br>
                 <span class="emphase-box">
                     This concept also emphasizes giving projects <strong>AN ACTUAL PURPOSE</strong>.
@@ -118,27 +90,22 @@
     </section>
 
 
-    <!-- SECTIONS D'INFORMATION (Cibles des clics sur les cartes) -->
-
-
-
-    <!-- CARTE 1 -->
     <section id="section-concept-1" class="info-section align-center" style="background-color: var(--bg-main);">
         <div class="info-content project-window-layout">
 
             <div class="project-menu-container">
-                <!-- Icône déplacée à gauche de AVAILABLE PROJECTS -->
-                <div class="schema-eyebrow" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                    <img src="Icon_Projects_Menu.png" alt="Icon"
-                        style="width: 20px; height: 20px; filter: invert(66%) sepia(95%) saturate(3000%) hue-rotate(1deg) brightness(105%) contrast(105%);">
-                    Availabe Project
+                <div class="schema-eyebrow" style="margin-bottom: 15px; display: inline-flex; align-items: center; gap: 10px; animation: bounce 2s infinite;">
+                    <img src="Icon_Projects_Menu.png" alt="Icon" class="project-icon-green">
+                    AVAILABLE PROJECTS
                 </div>
 
                 <div class="project-grid">
-                    <div class="project-card large-card" id="openProjectModalBtn">
-                        <div class="project-content" style="background-image: url('C2_HC1.webp');">
-                            <div class="project-title-bar">
-                                <span class="project-label">GREENHOUSE</span>
+                    <div class="glow-wrapper lift-on-hover" style="width: 100%; display: block;">
+                        <div class="project-card large-card" id="openProjectModalBtn">
+                            <div class="project-content" style="background-image: url('C2_HC1.webp');">
+                                <div class="project-title-bar">
+                                    <span class="project-label">GREENHOUSE</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -146,7 +113,6 @@
             </div>
 
             <div class="project-text-container">
-                <!-- Titre épuré (icône retirée d'ici) -->
                 <h2 class="title-with-icon">REBUILD NATURE INSIDE OF SPERANZA</h2>
                 <p class="intro-text">Unlock a personal, instanced <strong>Greenhouse Project</strong> next to your
                     raider's Den. <br>This isn't just a prop; it is an interactive project that comes with multiple
@@ -155,37 +121,52 @@
         </div>
     </section>
 
-    <!-- MODAL 0.5 -->
     <div id="modal-0.5" class="modal">
         <div class="modal-content game-modal" style="background-image: url('C2_HC1.webp');">
-            <span class="close-btn" id="closeModal05Btn">times;</span>
+            <span class="close-btn" id="closeProjectModalBtn">×</span>
 
             <div class="game-modal-left" id="modalLeftPanel">
-                <!-- TITRE PERMANENT RESTAURÉ -->
-                <div class="game-modal-eyebrow">INITIATIVE PROJECT</div>
+                <div class="game-modal-eyebrow">PROJECT</div>
                 <h2 class="game-modal-title">THE GREENHOUSE</h2>
 
                 <div id="state-purchase" class="modal-state">
-                    <p class="game-modal-desc">Speranza does not allow Raiders to use water freely, if you want to use it for your project, you first need to have an authorization.</p>
+                    <p class="game-modal-desc">Speranza does not allow Raiders to use water freely. If you want to use it for your project, you first need to get authorization.</p>
 
-                    <!-- NOUVELLE SECTION REQUIREMENT -->
                     <div class="requirement-section">
                         <div class="requirement-title">REQUIREMENT:</div>
-
                         <div class="requirement-box">
                             <div class="requirement-item">
-                                <!-- Base class + Modifier class -->
-                                <div class="item-slot rarity-legendary">
-                                    <img src="Security_Code.png" alt="Security Code" class="main-item-img">
-                                    <div class="item-bottom-bar">
-                                        <img src="Icon_Trinket.png" alt="Trinket" class="sub-item-icon">
+                                <div class="glow-wrapper">
+                                    <div class="item-slot rarity-legendary">
+                                        <img src="Security_Code.png" class="main-item-img" alt="Item Image">
+                                        <div class="item-bottom-bar">
+                                            <img src="Icon_Key.png" class="sub-item-icon" alt="Sub Icon">
+                                        </div>
+                                    </div>
+                                    <div class="item-tooltip">
+                                        <div class="tooltip-content">
+                                            <div class="tooltip-tags">
+                                                <span class="tooltip-tag icon-only-tag">
+                                                    <img src="Icon_Key.png" class="tag-icon" alt="Key">
+                                                </span>
+                                                <span class="tooltip-tag">KEY</span>
+                                                <span class="tooltip-tag">LEGENDARY</span>
+                                            </div>
+                                            <div class="tooltip-title">Official Authorization for Water Usage</div>
+                                            <div class="tooltip-desc">A pass granted to use the water for a greenhouse project.</div>
+                                        </div>
+                                        <div class="tooltip-footer">
+                                            <div class="footer-stat">
+                                                <img src="Icon_Weight.png" class="footer-icon" alt="Weight"> 0.5
+                                            </div>
+                                            <div class="footer-stat">
+                                                <img src="Icon_Coins.png" class="footer-icon" alt="Coins"> 100,000
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <span class="req-text">Official Authorization for Water Exploitation</span>
-
+                                <span class="req-text">Official Authorization for Water Usage</span>
                             </div>
-
                             <button class="purchase-btn-game" id="triggerPurchaseBtn">
                                 <span class="key-prompt">E</span> PURCHASE
                             </button>
@@ -194,125 +175,271 @@
                 </div>
 
                 <div id="state-upgrades" class="modal-state hidden">
-                    <p class="game-modal-desc">Your Greenhouse is now fully operational. Upgrade your greenhouse, or visit it.</p>
-
+                    <p class="game-modal-desc" style="margin-bottom: 20px;">
+                        Your Greenhouse is now fully operational. Access the core systems.
+                    </p>
                     <div class="upgrade-section">
-                        <!-- NOUVELLE LIGNE UPGRADES GRASSE -->
                         <div class="upgrade-section-title">UPGRADES</div>
-
                         <div class="upgrade-grid">
-                            <!-- Upgrade 1 -->
                             <div class="upgrade-card">
                                 <div class="upgrade-header">
-                                    <img src="positive_icon.webp" class="upgrade-icon" alt="UV Icon">
+                                    <img src="lampbulb.png" class="upgrade-icon">
                                     <span class="upgrade-title">UV LIGHTS</span>
                                 </div>
-                                <div class="upgrade-desc">Faster growing time.</div>
+                                <div class="upgrade-desc">
+                                    <img src="positive_icon.webp" class="desc-icon-blue">
+                                    <span>Faster growing time.</span>
+                                </div>
                             </div>
-
-                            <!-- Upgrade 2 -->
                             <div class="upgrade-card">
                                 <div class="upgrade-header">
-                                    <img src="positive_icon.webp" class="upgrade-icon" alt="Sprinkler Icon">
+                                    <img src="sprinklers.png" class="upgrade-icon">
                                     <span class="upgrade-title">SPRINKLERS</span>
                                 </div>
-                                <div class="upgrade-desc">Better crop yield.</div>
+                                <div class="upgrade-desc">
+                                    <img src="positive_icon.webp" class="desc-icon-blue">
+                                    <span>Better crop yield.</span>
+                                </div>
                             </div>
-
-                            <!-- Upgrade 3 -->
                             <div class="upgrade-card">
                                 <div class="upgrade-header">
-                                    <img src="positive_icon.webp" class="upgrade-icon" alt="Heater Icon">
+                                    <img src="heat.png" class="upgrade-icon">
                                     <span class="upgrade-title">CONTROLLED HEATER</span>
                                 </div>
-                                <div class="upgrade-desc">Faster growing time.</div>
+                                <div class="upgrade-desc">
+                                    <img src="positive_icon.webp" class="desc-icon-blue">
+                                    <span>Faster growing time.</span>
+                                </div>
                             </div>
-
-                            <!-- Upgrade 4 -->
                             <div class="upgrade-card">
                                 <div class="upgrade-header">
-                                    <img src="positive_icon.webp" class="upgrade-icon" alt="Soil Icon">
+                                    <img src="soil.png" class="upgrade-icon">
                                     <span class="upgrade-title">BETTER SOIL</span>
                                 </div>
-                                <div class="upgrade-desc">Ability to grow special crops.</div>
+                                <div class="upgrade-desc">
+                                    <img src="positive_icon.webp" class="desc-icon-blue">
+                                    <span>Ability to grow special crops.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <button class="purchase-btn-game" style="margin-top: auto;">
+                    <div class="harvest-alert">
+                        <img src="Icon_Nature.png" alt="Nature" class="bounce-icon">
+                        <span>There are 17 fully grown plants in the greenhouse. Harvest them now!</span>
+                    </div>
+
+                    <button class="purchase-btn-game" id="enterGreenhouseBtn" style="margin-top: 25px;">
                         <span class="key-prompt">E</span> ENTER GREENHOUSE
                     </button>
                 </div>
             </div>
-            <div class="game-modal-right"></div>
         </div>
     </div>
 
 
-
-
-
-
-
-
-
-    <!-- CARTE 2 : SEEDS OF TOMORROW AVEC ICÔNES INTERACTIVES -->
-    <!-- Changement de align-right vers align-left -->
     <section id="section-concept-2" class="info-section align-left"
         style="background: url('C2_W3BG.png') center/cover no-repeat; --section-opacity: 0;">
 
         <div class="info-content seeds-main-layout">
 
-            <!-- 1. Le panneau (fixé à gauche) -->
             <div class="glass-panel fixed-panel">
                 <h2 class="schema-title">SEEDS OF TOMORROW</h2>
-                <p class="intro-text">Plants or seeds that you scavenge topside now can be cultivated in your
+                <p class="intro-text">Plants or seeds that you scavenge topside can now be cultivated in your
                     greenhouse: </p>
-                <p class="intro-text" style="margin-top: 15x;"><strong> They grow in real times.</strong></p>
-                <p class="intro-text" style="margin-top: 0px;"><strong> You can only grow 24 plants at a time.</strong>
-                </p>
-                <p class="intro-text" style="margin-top: 10px;"><em>Some plants can be found in special condition or
+                <p class="intro-text" style="margin-top: 15px;"><strong> They grow in real time.</strong></p>
+                <p class="intro-text" style="margin-top: 0px;"><strong> You can only grow 24 plants at a time.</strong></p>
+                <p class="intro-text" style="margin-top: 10px;"><em>Some plants can be found in special conditions or
                         rarely in the seed vault of Stella Montis.</em></p>
             </div>
 
+            <div style="flex: 1.8; padding: 35px 40px; background-color: var(--card-bg-closed); border-radius: 12px; border: 1px solid var(--card-border); box-shadow: 0 15px 40px var(--shadow-light); z-index: 10; display: flex; flex-direction: column; gap: 25px;">
+                
+                <div class="schema-eyebrow" style="margin: 0; display: flex; align-items: center; gap: 10px;">
+                    <img src="Icon_Nature.png" alt="Icon" class="project-icon-green" style="width: 18px; height: 18px;">
+                    KNOWN FLORA INVENTORY
+                </div>
 
-        </div>
+                <div style="display: flex; flex-wrap: nowrap; gap: 15px; justify-content: space-between; align-items: center; width: 100%;">
+                    
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-uncommon" style="width: 105px; height: 105px;">
+                            <img src="Great_Mullein.png" class="main-item-img" alt="Great Mullein">
+                            <div class="item-bottom-bar">
+                                <img src="Icon_Nature.png" class="sub-item-icon" alt="Nature">
+                            </div>
+                        </div>
+                        <div class="item-tooltip position-top">
+                            <div class="tooltip-content">
+                                <div class="tooltip-tags">
+                                    <span class="tooltip-tag icon-only-tag"><img src="Icon_Nature.png" class="tag-icon" alt="Nature"></span>
+                                    <span class="tooltip-tag">PLANT</span>
+                                    <span class="tooltip-tag">UNCOMMON</span>
+                                </div>
+                                <div class="tooltip-title">Great Mullein</div>
+                                <div class="tooltip-desc">Used to craft medical supplies.</div>
+                            </div>
+                            <div class="tooltip-footer">
+                                <div class="footer-stat"><img src="Icon_Time.png" class="footer-icon" alt="Time"> 1h 00m</div>
+                                <div class="footer-stat"><img src="Coin.webp" class="footer-icon" alt="Coins"> 300</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-uncommon" style="width: 105px; height: 105px;">
+                            <img src="Prickly_Pear.png" class="main-item-img" alt="Prickly Pear" style="transform: scale(0.95);">
+                            <div class="item-bottom-bar">
+                                <img src="Icon_Nature.png" class="sub-item-icon" alt="Nature">
+                            </div>
+                        </div>
+                        <div class="item-tooltip position-top">
+                            <div class="tooltip-content">
+                                <div class="tooltip-tags">
+                                    <span class="tooltip-tag icon-only-tag"><img src="Icon_Nature.png" class="tag-icon" alt="Nature"></span>
+                                    <span class="tooltip-tag">PLANT</span>
+                                    <span class="tooltip-tag">UNCOMMON</span>
+                                </div>
+                                <div class="tooltip-title">Prickly Pear</div>
+                                <div class="tooltip-desc">Can be consumed for a small amount of stamina.</div>
+                            </div>
+                            <div class="tooltip-footer">
+                                <div class="footer-stat"><img src="Icon_Time.png" class="footer-icon" alt="Time"> 2h 00m</div>
+                                <div class="footer-stat"><img src="Coin.webp" class="footer-icon" alt="Coins"> 640</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-uncommon" style="width: 105px; height: 105px;">
+                            <img src="Agave.png" class="main-item-img" alt="Agave">
+                            <div class="item-bottom-bar">
+                                <img src="Icon_Nature.png" class="sub-item-icon" alt="Nature">
+                            </div>
+                        </div>
+                        <div class="item-tooltip position-top">
+                            <div class="tooltip-content">
+                                <div class="tooltip-tags">
+                                    <span class="tooltip-tag icon-only-tag"><img src="Icon_Nature.png" class="tag-icon" alt="Nature"></span>
+                                    <span class="tooltip-tag">PLANT</span>
+                                    <span class="tooltip-tag">UNCOMMON</span>
+                                </div>
+                                <div class="tooltip-title">Agave</div>
+                                <div class="tooltip-desc">A piece of an agave leaf. Can be used to regain a small amount of health.</div>
+                            </div>
+                            <div class="tooltip-footer">
+                                <div class="footer-stat"><img src="Icon_Time.png" class="footer-icon" alt="Time"> 3h 00m</div>
+                                <div class="footer-stat"><img src="Coin.webp" class="footer-icon" alt="Coins"> 1,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-uncommon" style="width: 105px; height: 105px;">
+                            <img src="Mushroom.png" class="main-item-img" alt="Mushroom" style="transform: scale(0.95);">
+                            <div class="item-bottom-bar">
+                                <img src="Icon_Nature.png" class="sub-item-icon" alt="Nature">
+                            </div>
+                        </div>
+                        <div class="item-tooltip position-top">
+                            <div class="tooltip-content">
+                                <div class="tooltip-tags">
+                                    <span class="tooltip-tag icon-only-tag"><img src="Icon_Nature.png" class="tag-icon" alt="Nature"></span>
+                                    <span class="tooltip-tag">PLANT</span>
+                                    <span class="tooltip-tag">UNCOMMON</span>
+                                </div>
+                                <div class="tooltip-title">Mushroom</div>
+                                <div class="tooltip-desc">Can be consumed to regain a small amount of health.</div>
+                            </div>
+                            <div class="tooltip-footer">
+                                <div class="footer-stat"><img src="Icon_Time.png" class="footer-icon" alt="Time"> 6h 00m</div>
+                                <div class="footer-stat"><img src="Coin.webp" class="footer-icon" alt="Coins"> 4,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-rare" style="width: 105px; height: 105px;">
+                            <img src="Candleberries.png" class="main-item-img" alt="Candleberries" style="transform: scale(0.95);">
+                            <div class="item-bottom-bar">
+                                <img src="Icon_Nature.png" class="sub-item-icon" alt="Nature">
+                            </div>
+                        </div>
+                        <div class="item-tooltip position-top">
+                            <div class="tooltip-content">
+                                <div class="tooltip-tags">
+                                    <span class="tooltip-tag icon-only-tag"><img src="Icon_Nature.png" class="tag-icon" alt="Nature"></span>
+                                    <span class="tooltip-tag">PLANT</span>
+                                    <span class="tooltip-tag">RARE</span>
+                                </div>
+                                <div class="tooltip-title">Candleberries</div>
+                                <div class="tooltip-desc">A waxy berry that grows only during a small window each year. People have depended on them to make candles, foods and medicine for ages.
+                                    <br> <strong>Only found during cold snap!</strong>
+                                </div>
+                            </div>
+                            <div class="tooltip-footer">
+                                <div class="footer-stat"><img src="Icon_Time.png" class="footer-icon" alt="Time"> 1h 30m</div>
+                                <div class="footer-stat"><img src="Coin.webp" class="footer-icon" alt="Coins"> 460</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-legendary" style="width: 105px; height: 105px;">
+                            <img src="Possibly_Toxic_Plant.png" class="main-item-img" alt="Revitalized Plant">
+                            <div class="item-bottom-bar">
+                                <img src="Icon_Nature.png" class="sub-item-icon" alt="Nature">
+                            </div>
+                        </div>
+                        <div class="item-tooltip position-top">
+                            <div class="tooltip-content">
+                                <div class="tooltip-tags">
+                                    <span class="tooltip-tag icon-only-tag"><img src="Icon_Nature.png" class="tag-icon" alt="Nature"></span>
+                                    <span class="tooltip-tag">PLANT</span>
+                                    <span class="tooltip-tag">LEGENDARY</span>
+                                </div>
+                                <div class="tooltip-title">Possibly Toxic Plant</div>
+                                <div class="tooltip-desc">A speculated source of miraculous healing, and/or particularly nasty rashes.
+                                    <br> <strong>Only found during Toxic Swamp !</strong>
+                                </div>
+                            </div>
+                            <div class="tooltip-footer">
+                                <div class="footer-stat"><img src="Icon_Time.png" class="footer-icon" alt="Time"> 24h 00m</div>
+                                <div class="footer-stat"><img src="Coin.webp" class="footer-icon" alt="Coins"> 10,500</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
     </section>
 
-
-
-
-    <!-- CARTE 3 : GASTRONOMIE -->
     <section id="section-concept-3" class="info-section align-center" style="background-color: var(--bg-main);">
         <div class="info-content" style="width: 100%; max-width: 1200px;">
 
-            <!-- Le titre avec l'icône centrée -->
-            <!-- Le titre avec l'icône centrée -->
             <h2 class="title-with-icon" style="justify-content: center;">
                 <img src="Food.png" alt="Food Icon" class="section-icon food-icon">
                 SURVIVAL GASTRONOMY
             </h2>
 
             <p class="intro-text" style="margin-bottom: 50px;">
-                <em>"A well-fed Raider is a deadly Raider."</em><br>
-                Use your harvested crops at the new Cooking Station to prepare meals before or in-raids. They are small
-                buff items, providing another gameplay purpose for plants. <strong>Here are some examples:</strong>
+                <em>"A well-fed Raider is a deadly Raider."</em> - A hungry raider, probably.
+                <br><br>
+                Use your harvested crops at the new Cooking Station to prepare meals before a raid. They are small
+                buff items, providing another gameplay purpose for plants. You can unlock new recipe with blueprints or with the new milestone program ! <strong>Here are some examples:</strong>
             </p>
-            <!-- LES 5 CARTES DE REPAS -->
+            
             <div class="meals-grid">
-
-                <!-- Repas 1 -->
                 <div class="meal-card" style="background-image: url('meal1.png');">
-                    <div class="meal-hover-desc">Keep you more warm outside in a cold snap.</div>
+                    <div class="meal-hover-desc">Keeps you warmer outside during a cold snap.</div>
                     <div class="meal-title-bar">
                         <span class="meal-title">CANDLEBERRY SYRUP</span>
                         <span class="meal-qty">5/5</span>
                     </div>
                 </div>
 
-                <!-- Repas 2 -->
                 <div class="meal-card" style="background-image: url('meal2.png');">
                     <div class="meal-hover-desc">Slightly increased stamina recovery for 15 minutes.</div>
                     <div class="meal-title-bar">
@@ -321,7 +448,6 @@
                     </div>
                 </div>
 
-                <!-- Repas 3 -->
                 <div class="meal-card" style="background-image: url('meal3.png');">
                     <div class="meal-hover-desc">Minor boost to sprint speed when out of combat.</div>
                     <div class="meal-title-bar">
@@ -330,7 +456,6 @@
                     </div>
                 </div>
 
-                <!-- Repas 4 -->
                 <div class="meal-card" style="background-image: url('meal4.png');">
                     <div class="meal-hover-desc">Slow passive health regeneration over time.</div>
                     <div class="meal-title-bar">
@@ -339,134 +464,112 @@
                     </div>
                 </div>
 
-                <!-- Repas 5 -->
                 <div class="meal-card" style="background-image: url('meal5.png');">
-                    <div class="meal-hover-desc">Have slightly more chance to find rarer items.</div>
-                    <div class="meal-title-bar">
+                    <div class="meal-hover-desc">Grants a slightly higher chance to find rarer items.</div>
+                    <div class="meal-title-bar">    
                         <span class="meal-title">SPERANZA SPECIALTY</span>
                         <span class="meal-qty">1/1</span>
                     </div>
-                </div>
-
+                </div>  
             </div>
         </div>
     </section>
 
-
-
-
-
-    <!-- CARTE 4 : HELP SPERANZA -->
     <section id="section-concept-4" class="info-section align-center help-speranza-bg">
         <div class="info-content dual-box-layout">
 
-<!-- TABLEAU DES CONTRATS ET DONATIONS -->
-<div class="glass-panel left-modifier-box donation-board-container">
-    
-    <!-- COLONNE GAUCHE : Contrat Journalier -->
-    <div class="daily-contract-panel">
-        <div class="contract-header-pill">DAILY CONTRACT</div>
-        <div class="contract-card">
-            <span class="difficulty-tag">NORMAL</span>
-            <h4 class="contract-title">HARVEST GREAT MULLEIN</h4>
-            <p class="contract-desc">Find and harvest <strong>Great Mullein</strong>.</p>
-            
-            <div class="contract-progress">
-                <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%;"></div></div>
-                <span class="mini-progress-text">0/20</span>
-            </div>
-            
-            <div class="contract-rewards-section">
-                <span class="rewards-label">Rewards:</span>
-                <div class="reward-icons">
-                    <div class="reward-item">
-                        <img src="Coin.webp" alt="Materials"> <!-- Remplace par ton icône -->
-                        <span>9k</span>
-                    </div>
-                    <div class="reward-item">
-                        <img src="positive_icon.webp" alt="Merits"> <!-- Remplace par ton icône -->
-                        <span>100</span>
+            <div class="glass-panel left-modifier-box donation-board-container">
+                
+                <div class="daily-contract-panel">
+                    <div class="contract-header-pill">DAILY CONTRACT</div>
+                    <div class="contract-card">
+                        <span class="difficulty-tag">NORMAL</span>
+                        <h4 class="contract-title">HARVEST GREAT MULLEIN</h4>
+                        <p class="contract-desc">Find and harvest <strong>Great Mullein</strong>.</p>
+                        
+                        <div class="contract-progress">
+                            <div class="mini-bar-bg"><div class="mini-bar-fill" style="width: 0%;"></div></div>
+                            <span class="mini-progress-text">0/20</span>
+                        </div>
+                        
+                        <div class="contract-rewards-section">
+                            <span class="rewards-label">Rewards:</span>
+                            <div class="reward-icons">
+                                <div class="reward-item">
+                                    <img src="Coin.webp" alt="Materials">
+                                    <span>9k</span>
+                                </div>
+                                <div class="reward-item">
+                                    <img src="positive_icon.webp" alt="Merits">
+                                    <span>100</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-yellow-accept">ACCEPT</button>
                     </div>
                 </div>
+
+               <div class="weekly-donation-panel">
+                    <div class="top-tags-row">
+                        <span class="tag-yellow">THE GREEN HAND INITIATIVE</span>
+                    </div>
+                    
+                    <p class="donation-lore">
+                        With the recent shortage of food, Celeste is sponsoring a reward program for raiders who donate their crops.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+                        <div class="progress-section-title">
+                            <h4>DONATION PROGRESS BAR:</h4>
+                        </div>
+                        <span class="tag-black">WEEKLY DONATION</span>
+                    </div>
+                    
+                    <div class="weekly-timer-row">
+                        <span class="timer-text" id="weekly-timer">RESETS IN: --d --h --m</span>
+                        <div class="info-bubble" data-tooltip="Reset every sunday">i</div>
+                    </div>
+
+                    <div class="big-progress-wrapper">
+                        <div class="big-progress-track">
+                            <div class="big-progress-fill" style="width: 74%;"></div> 
+                        </div>
+                        <div class="progress-numbers">74 / 100 CROPS DONATED</div>
+                    </div>
+
+                    <div class="donation-buffs">
+                        <div class="buffs-condition">WHEN FULL:</div>
+                        <ul>
+                            <li><strong>+6kg</strong> carrying capacity for your Raider.</li>
+                            <li>Better items found by <strong>Scrappy</strong>.</li>
+                            <li><strong>+5%</strong> maximum stamina.</li>
+                        </ul>
+                        <span class="tag-black">You can always give more than 100 crops per week.</span>
+                    </div>
+                    
+                    <hr class="donation-separator">
+                    
+                    <button class="btn-pill-black">SEE THE PROGRAM MILESTONES</button>
+                </div>
             </div>
-            
-            <button class="btn-yellow-accept">ACCEPT</button>
-        </div>
-    </div>
 
-   <!-- COLONNE DROITE : Weekly Donation -->
-    <div class="weekly-donation-panel">
-        
-        <!-- On ne garde que le tag jaune en haut -->
-        <div class="top-tags-row">
-            <span class="tag-yellow">THE GREEN HAND INITIATIVE</span>
-        </div>
-        
-        <p class="donation-lore">
-            With the recent shortage of food, Celeste is sponsoring a reward program for raiders who donates their crops.
-        </p>
-        
-        <!-- LE TAG NOIR DESCENDU ICI, groupé avec le titre -->
-        <div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
-            
-            <div class="progress-section-title">
-                <h4>DONATION PROGRESS BAR:</h4>
-            </div>
-            <span class="tag-black">WEEKLY DONATION</span>
-        </div>
-        
-        <!-- Timer & Bulle Info -->
-        <div class="weekly-timer-row">
-            <span class="timer-text" id="weekly-timer">RESETS IN: --d --h --m</span>
-            <div class="info-bubble" data-tooltip="Reset every sunday">i</div>
-        </div>
-
-        <!-- Barre de progression -->
-        <div class="big-progress-wrapper">
-            <div class="big-progress-track">
-                <div class="big-progress-fill" style="width: 74%;"></div> 
-            </div>
-            <div class="progress-numbers">74 / 100 CROPS DONATED</div>
-        </div>
-
-        <!-- Les Buffs -->
-        <div class="donation-buffs">
-            <div class="buffs-condition">WHEN FULL:</div>
-            <ul>
-                <li><strong>+6kg</strong> carrying capacity for your Raider.</li>
-                <li>Better items found by <strong>Scrappy</strong>.</li>
-                <li><strong>+5%</strong> maximum stamina.</li>
-            </ul>
-            <span class="tag-black">You can always give more than 100 crops per week.</span>
-        </div>
-        
-        <hr class="donation-separator">
-        
-        <button class="btn-pill-black">SEE THE PROGRAM MILESTONES</button>
-    </div>
-
-
-</div>
-
-            <!-- CASE DE DROITE (Titre et Description) -->
             <div class="glass-panel right-info-box">
                 <h2 class="schema-title">HELPING SPERANZA</h2>
                 <p class="intro-text">
-                 <br>  <em>  Celeste heard that raiders are now growing their own plants and has establish a new program: the green hand initiative, a <strong> milestone-type</strong> system based on your total number of crops donated ! Earn Merits and buffs through her new program, and help rebuilding and reinforcing Speranza. </em> 
+                 <br>  <em>  Celeste heard that raiders are now growing their own plants and has established a new program: the green hand initiative, a <strong> milestone-type</strong> system based on your total number of crops donated ! Earn Merits and buffs through her new program, and and help rebuild and reinforce Speranza. </em> 
                 </p>
             </div>
 
         </div>
     </section>
 
-    <!-- FENÊTRE REDDIT / OUTRO -->
     <section class="info-section align-center" style="border-top: 4px solid var(--accent); min-height: 40vh;">
         <div class="info-content" style="text-align: center;">
             <h2>About me</h2>
             <p class="intro-text" style="margin-bottom: 30px;">Hi i'm Gogneau, I initially designed this concept to see how a non-combat
                 loop could fit into ARC Raiders. I know there's 99% chance that my concept will never see the day but i don't care, i'm loving to share some concept of my favorite game with you all !</p>
 
-            <!-- Remplace le # par ton vrai lien Reddit -->
             <a href="#" target="_blank"
                 style="display: inline-block; background-color: var(--accent); color: #fff; padding: 15px 30px; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border-radius: 5px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                 Read the original Reddit Post
@@ -474,21 +577,7 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- SCRIPT -->-------------------------------------------------------------------------------------------------------------------------------------------------------
     <script>
-        // 1. Gestion du clic sur les cartes pour scroller vers la bonne section
         const cards = document.querySelectorAll('.card');
 
         cards.forEach((card, index) => {
@@ -502,18 +591,6 @@
             });
         });
 
-        // 2. Toggle du Dark Mode
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        themeToggleBtn.addEventListener('click', function () {
-            document.body.classList.toggle('dark-theme');
-            if (document.body.classList.contains('dark-theme')) {
-                themeToggleBtn.textContent = 'Light Mode';
-            } else {
-                themeToggleBtn.textContent = 'Dark Mode';
-            }
-        });
-
-        // 3. Apparition progressive des textes au défilement (Scroll Reveal)
         const infoContents = document.querySelectorAll('.info-content');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 
@@ -531,13 +608,9 @@
             observer.observe(content);
         });
 
-
-        // --- GESTION DU MODAL 0.5 ---
         const projectModal = document.getElementById("modal-0.5");
         const openProjectBtn = document.getElementById("openProjectModalBtn");
-        const closeProjectBtn = document.getElementById("closeModal05Btn");
 
-        // 1. Ouvrir la fenêtre au clic sur la grande carte
         if (openProjectBtn && projectModal) {
             openProjectBtn.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -545,21 +618,29 @@
             });
         }
 
-        // 2. Fermer la fenêtre au clic sur la petite croix (X)
-        if (closeProjectBtn && projectModal) {
-            closeProjectBtn.addEventListener('click', function () {
-                projectModal.classList.remove('show');
-            });
-        }
+        const closeActions = () => {
+            if (projectModal) projectModal.classList.remove('show');
+            
+            setTimeout(() => {
+                const modalLeftPanel = document.getElementById("modalLeftPanel");
+                const statePurchase = document.getElementById("state-purchase");
+                const stateUpgrades = document.getElementById("state-upgrades");
+                
+                if (modalLeftPanel) modalLeftPanel.classList.remove("expanded");
+                if (stateUpgrades) stateUpgrades.classList.add("hidden");
+                if (statePurchase) statePurchase.classList.remove("hidden");
+            }, 300);
+        };
 
-        // 3. Fermer la fenêtre si on clique dans le vide (autour de la fenêtre)
-        window.addEventListener('click', function (event) {
-            if (event.target === projectModal) {
-                projectModal.classList.remove('show');
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.close-btn') || e.target.id === "closeProjectModalBtn") {
+                closeActions();
+            }
+            if (e.target === projectModal || e.target.classList.contains('modal')) {
+                closeActions();
             }
         });
 
-        // --- LOGIQUE D'ACHAT DU PROJET (TRANSITION D'ÉTAT) ---
         const triggerPurchaseBtn = document.getElementById("triggerPurchaseBtn");
         const modalLeftPanel = document.getElementById("modalLeftPanel");
         const statePurchase = document.getElementById("state-purchase");
@@ -567,69 +648,63 @@
 
         if (triggerPurchaseBtn) {
             triggerPurchaseBtn.addEventListener('click', function () {
-                // 1. Agrandit le panneau vers la droite
                 modalLeftPanel.classList.add("expanded");
-
-                // 2. Cache la section d'achat
                 statePurchase.classList.add("hidden");
-
-                // 3. Affiche la section des améliorations (avec la grille et le nouveau bouton)
                 stateUpgrades.classList.remove("hidden");
-            });
-        }
-
-        // Optionnel mais propre : Réinitialiser la fenêtre quand on la ferme
-        const closeBtn = document.getElementById("closeModal05Btn");
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function () {
-                projectModal.classList.remove('show');
-                // Reset l'état au cas où on réouvre le menu plus tard
-                setTimeout(() => {
-                    modalLeftPanel.classList.remove("expanded");
-                    stateUpgrades.classList.add("hidden");
-                    statePurchase.classList.remove("hidden");
-                }, 300); // Attend la fin de l'animation de fermeture
             });
         }
     </script>
 
+    <script>
+        function updateWeeklyTimer() {
+            const now = new Date();
+            const nextSunday = new Date();
+            
+            nextSunday.setDate(now.getDate() + (7 - now.getDay()) % 7);
+            nextSunday.setHours(23, 59, 59, 999);
+            
+            if (now.getDay() === 0 && now.getHours() > 0) {
+               nextSunday.setDate(now.getDate() + 6);
+            }
 
+            const diff = nextSunday - now;
 
-<script>
-// Timer dynamique pour le reset du dimanche
-function updateWeeklyTimer() {
-    const now = new Date();
-    const nextSunday = new Date();
-    
-    // Calcule le prochain dimanche
-    nextSunday.setDate(now.getDate() + (7 - now.getDay()) % 7);
-    nextSunday.setHours(23, 59, 59, 999);
-    
-    // Si on est déjà dimanche, on cible le dimanche suivant
-    if (now.getDay() === 0 && now.getHours() > 0) {
-       nextSunday.setDate(now.getDate() + 6);
-    }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    const diff = nextSunday - now;
+            const timerElement = document.getElementById('weekly-timer');
+            if(timerElement) {
+                timerElement.innerText = `RESETS IN: ${days}d ${hours}h ${minutes}m`;
+            }
+        }
 
-    // Convertit la différence en Jours, Heures, Minutes
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        updateWeeklyTimer();
+        setInterval(updateWeeklyTimer, 60000);
 
-    const timerElement = document.getElementById('weekly-timer');
-    if(timerElement) {
-        timerElement.innerText = `RESETS IN: ${days}d ${hours}h ${minutes}m`;
-    }
-}
+        const enterGreenhouseBtn = document.getElementById("enterGreenhouseBtn");
+        const acceptBtn = document.querySelector(".btn-yellow-accept");
+        const seeProgramBtn = document.querySelector(".btn-pill-black");
 
-// Mise à jour immédiate puis toutes les 60 secondes
-updateWeeklyTimer();
-setInterval(updateWeeklyTimer, 60000);
-</script>
+        const triggerShake = function(e) {
+            e.preventDefault();
+            this.classList.remove("shake");
+            void this.offsetWidth; 
+            this.classList.add("shake");
+        };
 
+        if (enterGreenhouseBtn) {
+            enterGreenhouseBtn.addEventListener('click', triggerShake);
+        }
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', triggerShake);
+        }
+        if (seeProgramBtn) {
+            seeProgramBtn.addEventListener('click', triggerShake);
+        }
+    </script>
 
-
+    <script src="navbar.js"></script>
 </body>
 
 </html>

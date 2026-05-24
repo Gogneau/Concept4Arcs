@@ -1029,95 +1029,6 @@ body.dark-theme .section-icon {
 }
 
 
-/* --- STYLING DE LA CARTE PROJET (GREENHOUSE) --- */
-.project-card {
-    position: relative;
-    /* 1. On supprime width: 100%, dans une grille c'est souvent inutile et ça fait déborder */
-    box-sizing: border-box; 
-    aspect-ratio: 16 / 9; 
-    border-radius: 6px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--accent); /* Ton contour */
-    
-    /* 2. L'astuce : une toute petite marge pour que la bordure ne colle pas la paroi invisible du parent */
-    margin: 2px; 
-    
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-/* CARTE PROJET UNIQUE ET PLUS GRANDE */
-.project-card.large-card {
-    width: 100%;
-    max-width: 650px;
-    height: auto; 
-}
-
-.project-card:hover {
-    transform: scale(1.02);
-    z-index: 10;
-    /* On cache la bordure orange fixe pour laisser passer le halo tournant */
-    border-color: transparent !important; 
-}
-
-/* Le faisceau lumineux MULTI-LUMIÈRES */
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    aspect-ratio: 1 / 1; 
-    background: conic-gradient(
-        from 0deg, 
-        transparent 0%, 
-        transparent 25%, 
-        rgba(var(--accent-rgb), 0.5) 45%, /* Lueur dynamique ici */
-        rgba(138, 43, 226, 0.7) 60%,  
-        rgba(255, 0, 128, 0.8) 75%,   
-        rgba(170, 0, 255, 0.9) 85%,   
-        rgba(255, 255, 255, 0.9) 95%, 
-        #ffffff 100%                  
-    );
-    animation: spin-glow 3s linear infinite;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-}
-
-.project-card:hover::before {
-    opacity: 1;
-}
-
-@keyframes spin-glow {
-    /* Le translate(-50%, -50%) permet de garder le carré parfaitement centré pendant qu'il tourne */
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Le masque central de l'image */
-.project-content {
-    position: absolute;
-    /* PAR DÉFAUT : 0px. L'image touche les bords, aucun contour noir visible ! */
-    inset: 0px; 
-    background-color: var(--card-bg-closed);
-    background-size: cover;
-    background-position: center;
-    border-radius: 4px; 
-    z-index: 1;
-    display: flex;
-    align-items: flex-end; 
-    padding: 0; 
-    /* Animation fluide pour révéler le bord au survol */
-    transition: inset 0.3s ease;
-}
-
-.project-card:hover .project-content {
-    /* AU SURVOL : l'image s'enfonce très légèrement (3px) pour révéler le halo */
-    inset: 3px; 
-}
 
 /* LA BARRE SEMI-TRANSPARENTE */
 /* --- NOUVEAU MODAL STYLE JEU (ARC RAIDERS) --- */
@@ -1686,19 +1597,17 @@ body.dark-theme .food-icon {
 .project-card {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9; /* Le fameux ratio rectangulaire */
+    aspect-ratio: 16 / 9;
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    /* On a retiré le transform d'ici, on ne garde que le border-color */
+    transition: border-color 0.2s ease; 
 }
 
-.project-card:hover {
-    transform: translateY(-5px); /* Petit effet au survol */
-    border-color: var(--accent); /* Bordure orange */
-}
+
 
 /* L'image de fond prend toute la place */
 .project-content {
@@ -1912,6 +1821,106 @@ body.dark-theme .food-icon {
     /* Dégradé sombre grisâtre classique */
     background: linear-gradient(135deg, #222225 0%, #0f0f11 100%);
 }
+
+
+
+
+/* --- 1. HARVEST ALERT & BOUNCING ICON --- */
+.harvest-alert {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bounce-icon {
+    width: 24px;
+    height: 24px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+/* --- 2. ICÔNES DE DESCRIPTION EN BLEU --- */
+.upgrade-desc {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.desc-icon-blue {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    /* Ce filtre transforme le blanc/noir de l'image en cyan/bleu néon */
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(120%);
+}
+
+/* --- 3. ANIMATION DE REFUS (SHAKE) --- */
+.shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(4px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+    40%, 60% { transform: translate3d(6px, 0, 0); }
+}
+
+/* --- 4. CORRECTION DU BOUTON FERMER --- */
+#projectModal /* --- CORRECTION DU BOUTON FERMER --- */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 2.5rem; 
+    cursor: pointer;
+    z-index: 9999 !important; /* Force le premier plan pour éviter les superpositions invisibles */
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+.close-btn:hover {
+    color: #ffb400;
+}
+
+
+/* Filtre pour rendre l'icône verte (#43c05c) */
+.project-icon-green {
+    width: 22px;
+    height: 22px;
+    filter: invert(65%) sepia(21%) saturate(1088%) hue-rotate(81deg) brightness(92%) contrast(83%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2290,3 +2299,351 @@ body.dark-theme .food-icon {
     color: #000;
 }
 
+
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* --- APRES TEST --- */
+/* ========================================= */
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* --- CONTENEUR LUMINEUX UNIVERSEL --- */
+/* ========================================= */
+
+/* Variables pour la 1ère salve */
+@property --angle-cyan { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+@property --angle-magenta { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+
+/* Variables pour la 2ème salve (identiques) */
+@property --angle-cyan-2 { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+@property --angle-magenta-2 { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+
+.glow-wrapper {
+    position: relative;
+    display: inline-flex;
+    z-index: 1;
+}
+
+.glow-wrapper::before,
+.glow-wrapper::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -5px; bottom: -5px; left: -5px; right: -5px;
+    border-radius: 11px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 3px;
+    
+    /* Version WebKit (Chrome, Safari, Edge) */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    
+    /* Version Standard (Firefox et standards du web) - C'est ça qui enlève l'erreur ! */
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+/* 1. FAISCEAU DU BAS / GAUCHE */
+.glow-wrapper::before {
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: 
+        /* --- SALVE 1 --- */
+        conic-gradient(
+            from var(--angle-cyan) at 50% 50%,
+            transparent 0deg,
+            transparent 220deg,           /* LE GAP (petit espace noir de 40°) */
+            rgba(255, 0, 255, 0) 220deg,  /* Début de la queue (fondu invisible) */
+            #ff00ff 255deg,               /* 25% VIOLET */
+            #00ffff 290deg,               /* 25% BLEU */
+            #ffffff 325deg,               /* 50% BLANC (commence ici) */
+            #ffffff 350deg,               /* Le blanc reste massif */
+            transparent 360deg            /* LE FONDU DE LA TÊTE (sur 10°) */
+        ),
+        /* --- SALVE 2 (Superposée) --- */
+        conic-gradient(
+            from var(--angle-cyan-2) at 50% 50%,
+            transparent 0deg,
+            transparent 220deg,           
+            rgba(255, 0, 255, 0) 220deg,  
+            #ff00ff 255deg,               
+            #00ffff 290deg,               
+            #ffffff 325deg,               
+            #ffffff 350deg,               
+            transparent 360deg            
+        );
+}
+
+/* 2. FAISCEAU DE DROITE / HAUT */
+.glow-wrapper::after {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    background: 
+        /* --- SALVE 1 --- */
+        conic-gradient(
+            from var(--angle-magenta) at 50% 50%,
+            transparent 0deg,             /* LE FONDU DE LA TÊTE (sur 10°) */
+            #ffffff 10deg,                /* Fin du fondu, le blanc est pur */
+            #ffffff 35deg,                /* 50% BLANC (finit ici) */
+            #00ffff 70deg,                /* 25% BLEU */
+            #ff00ff 105deg,               /* 25% VIOLET */
+            rgba(255, 0, 255, 0) 140deg,  /* Fin de la queue en fondu invisible */
+            transparent 140deg,           /* LE GAP (petit espace noir de 40°) */
+            transparent 360deg            
+        ),
+        /* --- SALVE 2 (Superposée) --- */
+        conic-gradient(
+            from var(--angle-magenta-2) at 50% 50%,
+            transparent 0deg,             
+            #ffffff 10deg,                
+            #ffffff 35deg,                
+            #00ffff 70deg,                
+            #ff00ff 105deg,               
+            rgba(255, 0, 255, 0) 140deg,  
+            transparent 140deg,           
+            transparent 360deg            
+        );
+}
+
+.glow-wrapper:hover {
+    z-index: 10;
+}
+
+/* AJOUT : Classe utilitaire pour soulever l'ensemble (Carte + Lumière) */
+.glow-wrapper.lift-on-hover:hover {
+    transform: translateY(-5px);
+}
+
+.glow-wrapper:hover::before {
+    opacity: 1;
+    /* On lance les deux salves, la 2ème démarre avec un décalage parfait de la moitié du temps */
+    animation: 
+        rotateCyan 3s linear infinite,
+        rotateCyan2 3s linear infinite -1.5s;
+}
+
+.glow-wrapper:hover::after {
+    opacity: 1;
+    animation: 
+        rotateMagenta 3s linear infinite,
+        rotateMagenta2 3s linear infinite -1.5s;
+}
+
+/* Keyframes Salve 1 */
+@keyframes rotateCyan {
+    0% { --angle-cyan: 135deg; }
+    100% { --angle-cyan: 495deg; }
+}
+@keyframes rotateMagenta {
+    0% { --angle-magenta: 135deg; }
+    100% { --angle-magenta: -225deg; }
+}
+
+/* Keyframes Salve 2 */
+@keyframes rotateCyan2 {
+    0% { --angle-cyan-2: 135deg; }
+    100% { --angle-cyan-2: 495deg; }
+}
+@keyframes rotateMagenta2 {
+    0% { --angle-magenta-2: 135deg; }
+    100% { --angle-magenta-2: -225deg; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* --- FENÊTRE D'INFORMATION (TOOLTIP) --- */
+/* ========================================= */
+
+/* 1. Détection de la rareté pour la couleur des tags */
+/* Le wrapper détecte la classe de l'enfant et crée une variable de couleur */
+.glow-wrapper:has(.rarity-legendary) { --rarity-color: #ffcc00; } /* Jaune */
+.glow-wrapper:has(.rarity-epic) { --rarity-color: #c800ff; }      /* Violet (exemple) */
+.glow-wrapper:has(.rarity-rare) { --rarity-color: #00aaff; }      /* Bleu (exemple) */
+.glow-wrapper:has(.rarity-uncommon) { --rarity-color: #00ff66; }  /* Vert (exemple) */
+
+/* 2. Le conteneur global de la fenêtre */
+.item-tooltip {
+    position: absolute;
+    /* AJOUT : Décalage vers le haut pour correspondre à l'image (-20px) */
+    top: -50px; 
+    left: calc(100% + 15px); 
+    transform: translateX(10px); 
+    
+    width: 340px; 
+    background-color: #f3ece0;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* 3. Animation d'apparition par défaut (glisse depuis la droite) */
+.glow-wrapper:hover .item-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); 
+}
+
+/* NOUVEAU : Classe de secours si manque d'espace (placement au-DESSUS) */
+.item-tooltip.position-top {
+    top: auto;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.glow-wrapper:hover .item-tooltip.position-top {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 4. Le contenu (Tags, Titre, Description) */
+.tooltip-content {
+    padding: 16px;
+}
+
+.tooltip-tags {
+    display: flex;
+    gap: 4px; /* Espace légèrement réduit pour coller au design original */
+    margin-bottom: 12px;
+}
+
+.tooltip-tag {
+    background-color: var(--rarity-color, #444); 
+    color: #121418;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Nouveau style spécifique pour la boîte contenant uniquement l'icône */
+.icon-only-tag {
+    padding: 4px; 
+    min-width: 20px; /* Assure que la boîte reste carrée */
+}
+
+/* Taille de l'icône dans la boîte de tag (L'icône KEY) */
+.tag-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0); /* AJOUT : Force le PNG à devenir noir */
+}
+
+.tooltip-title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.1;
+    color: #121418;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.tooltip-desc {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #121418;
+}
+
+/* 5. Le Footer (Poids et Prix) */
+.tooltip-footer {
+    display: flex;
+    background-color: #dfd5c3; 
+    border-top: 1px solid #d1c6b2;
+}
+
+.footer-stat {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #121418;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Taille des icônes Poids et Monnaie en PNG */
+.footer-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0); /* AJOUT : Force le PNG à devenir noir */
+}
+
+.footer-stat:first-child {
+    border-right: 1px solid #d1c6b2;
+}
+
+/* ========================================= */
+/* --- EXCEPTIONS SELON LA RARETÉ --- */
+/* ========================================= */
+
+/* Quand c'est Epic, l'icône du tag devient blanche */
+.glow-wrapper:has(.rarity-epic) .tag-icon {
+    filter: brightness(0) invert(1); 
+}
+
+/* (Optionnel) Je te conseille d'ajouter ça aussi pour que le texte du tag 
+   passe en blanc sur le fond violet, ce sera plus lisible ! */
+.glow-wrapper:has(.rarity-epic) .tooltip-tag {
+    color: #ffffff;
+}

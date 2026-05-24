@@ -1,0 +1,493 @@
+.rooster-background {
+    /* La couleur de fond exacte : un violet nocturne très profond */
+    background-color: #171221; 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50vh; /* À ajuster selon tes besoins */
+    overflow: hidden;
+}
+
+/* Le cercle en arrière-plan */
+.rooster-background::before {
+    content: '';
+    position: absolute;
+    width: 450px; /* La taille de ton cercle */
+    height: 450px;
+    border-radius: 50%;
+    
+    /* La ligne fine et légèrement violette/bleutée */
+    border: 1px solid rgba(130, 110, 255, 0.25); 
+    
+    /* Le petit halo lumineux (glow) autour de la ligne */
+    box-shadow: 0 0 40px rgba(130, 110, 255, 0.08); 
+    
+    pointer-events: none; /* Empêche le cercle de bloquer les clics de la souris */
+    z-index: 0; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================= */
+/* --- FENÊTRE D'INFORMATION (TOOLTIP) --- */
+/* ========================================= */
+
+/* 1. Détection de la rareté pour la couleur des tags */
+/* Le wrapper détecte la classe de l'enfant et crée une variable de couleur */
+.glow-wrapper:has(.rarity-legendary) { --rarity-color: #ffcc00; } /* Jaune */
+.glow-wrapper:has(.rarity-epic) { --rarity-color: #c800ff; }      /* Violet (exemple) */
+.glow-wrapper:has(.rarity-rare) { --rarity-color: #00aaff; }      /* Bleu (exemple) */
+.glow-wrapper:has(.rarity-uncommon) { --rarity-color: #00ff66; }  /* Vert (exemple) */
+
+/* 2. Le conteneur global de la fenêtre */
+.item-tooltip {
+    position: absolute;
+    /* AJOUT : Décalage vers le haut pour correspondre à l'image (-20px) */
+    top: -50px; 
+    left: calc(100% + 15px); 
+    transform: translateX(10px); 
+    
+    width: 340px; 
+    background-color: #f3ece0;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* 3. Animation d'apparition par défaut (glisse depuis la droite) */
+.glow-wrapper:hover .item-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); 
+}
+
+/* NOUVEAU : Classe de secours si manque d'espace (placement au-DESSUS) */
+.item-tooltip.position-top {
+    top: auto;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.glow-wrapper:hover .item-tooltip.position-top {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 4. Le contenu (Tags, Titre, Description) */
+.tooltip-content {
+    padding: 16px;
+}
+
+.tooltip-tags {
+    display: flex;
+    gap: 4px; /* Espace légèrement réduit pour coller au design original */
+    margin-bottom: 12px;
+}
+
+.tooltip-tag {
+    background-color: var(--rarity-color, #444); 
+    color: #121418;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Nouveau style spécifique pour la boîte contenant uniquement l'icône */
+.icon-only-tag {
+    padding: 4px; 
+    min-width: 20px; /* Assure que la boîte reste carrée */
+}
+
+/* Taille de l'icône dans la boîte de tag (L'icône KEY) */
+.tag-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0); /* AJOUT : Force le PNG à devenir noir */
+}
+
+.tooltip-title {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.1;
+    color: #121418;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.tooltip-desc {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #121418;
+}
+
+/* 5. Le Footer (Poids et Prix) */
+.tooltip-footer {
+    display: flex;
+    background-color: #dfd5c3; 
+    border-top: 1px solid #d1c6b2;
+}
+
+.footer-stat {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #121418;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Taille des icônes Poids et Monnaie en PNG */
+.footer-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0); /* AJOUT : Force le PNG à devenir noir */
+}
+
+.footer-stat:first-child {
+    border-right: 1px solid #d1c6b2;
+}
+
+/* ========================================= */
+/* --- EXCEPTIONS SELON LA RARETÉ --- */
+/* ========================================= */
+
+/* Quand c'est Epic, l'icône du tag devient blanche */
+.glow-wrapper:has(.rarity-epic) .tag-icon {
+    filter: brightness(0) invert(1); 
+}
+
+/* (Optionnel) Je te conseille d'ajouter ça aussi pour que le texte du tag 
+   passe en blanc sur le fond violet, ce sera plus lisible ! */
+.glow-wrapper:has(.rarity-epic) .tooltip-tag {
+    color: #ffffff;
+}
+
+
+
+
+
+/* ========================================= */
+/* --- CONTENEUR LUMINEUX UNIVERSEL --- */
+/* ========================================= */
+
+/* Variables pour la 1ère salve */
+@property --angle-cyan { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+@property --angle-magenta { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+
+/* Variables pour la 2ème salve (identiques) */
+@property --angle-cyan-2 { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+@property --angle-magenta-2 { syntax: '<angle>'; initial-value: 135deg; inherits: false; }
+
+.glow-wrapper {
+    position: relative;
+    display: inline-flex;
+    z-index: 1;
+}
+
+.glow-wrapper::before,
+.glow-wrapper::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -5px; bottom: -5px; left: -5px; right: -5px;
+    border-radius: 11px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 3px;
+    
+    /* Version WebKit (Chrome, Safari, Edge) */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    
+    /* Version Standard (Firefox et standards du web) - C'est ça qui enlève l'erreur ! */
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+/* 1. FAISCEAU DU BAS / GAUCHE */
+.glow-wrapper::before {
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: 
+        /* --- SALVE 1 --- */
+        conic-gradient(
+            from var(--angle-cyan) at 50% 50%,
+            transparent 0deg,
+            transparent 220deg,           /* LE GAP (petit espace noir de 40°) */
+            rgba(255, 0, 255, 0) 220deg,  /* Début de la queue (fondu invisible) */
+            #ff00ff 255deg,               /* 25% VIOLET */
+            #00ffff 290deg,               /* 25% BLEU */
+            #ffffff 325deg,               /* 50% BLANC (commence ici) */
+            #ffffff 350deg,               /* Le blanc reste massif */
+            transparent 360deg            /* LE FONDU DE LA TÊTE (sur 10°) */
+        ),
+        /* --- SALVE 2 (Superposée) --- */
+        conic-gradient(
+            from var(--angle-cyan-2) at 50% 50%,
+            transparent 0deg,
+            transparent 220deg,           
+            rgba(255, 0, 255, 0) 220deg,  
+            #ff00ff 255deg,               
+            #00ffff 290deg,               
+            #ffffff 325deg,               
+            #ffffff 350deg,               
+            transparent 360deg            
+        );
+}
+
+/* 2. FAISCEAU DE DROITE / HAUT */
+.glow-wrapper::after {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    background: 
+        /* --- SALVE 1 --- */
+        conic-gradient(
+            from var(--angle-magenta) at 50% 50%,
+            transparent 0deg,             /* LE FONDU DE LA TÊTE (sur 10°) */
+            #ffffff 10deg,                /* Fin du fondu, le blanc est pur */
+            #ffffff 35deg,                /* 50% BLANC (finit ici) */
+            #00ffff 70deg,                /* 25% BLEU */
+            #ff00ff 105deg,               /* 25% VIOLET */
+            rgba(255, 0, 255, 0) 140deg,  /* Fin de la queue en fondu invisible */
+            transparent 140deg,           /* LE GAP (petit espace noir de 40°) */
+            transparent 360deg            
+        ),
+        /* --- SALVE 2 (Superposée) --- */
+        conic-gradient(
+            from var(--angle-magenta-2) at 50% 50%,
+            transparent 0deg,             
+            #ffffff 10deg,                
+            #ffffff 35deg,                
+            #00ffff 70deg,                
+            #ff00ff 105deg,               
+            rgba(255, 0, 255, 0) 140deg,  
+            transparent 140deg,           
+            transparent 360deg            
+        );
+}
+
+.glow-wrapper:hover {
+    z-index: 10;
+}
+
+/* AJOUT : Classe utilitaire pour soulever l'ensemble (Carte + Lumière) */
+.glow-wrapper.lift-on-hover:hover {
+    transform: translateY(-5px);
+}
+
+.glow-wrapper:hover::before {
+    opacity: 1;
+    /* On lance les deux salves, la 2ème démarre avec un décalage parfait de la moitié du temps */
+    animation: 
+        rotateCyan 3s linear infinite,
+        rotateCyan2 3s linear infinite -1.5s;
+}
+
+.glow-wrapper:hover::after {
+    opacity: 1;
+    animation: 
+        rotateMagenta 3s linear infinite,
+        rotateMagenta2 3s linear infinite -1.5s;
+}
+
+/* Keyframes Salve 1 */
+@keyframes rotateCyan {
+    0% { --angle-cyan: 135deg; }
+    100% { --angle-cyan: 495deg; }
+}
+@keyframes rotateMagenta {
+    0% { --angle-magenta: 135deg; }
+    100% { --angle-magenta: -225deg; }
+}
+
+/* Keyframes Salve 2 */
+@keyframes rotateCyan2 {
+    0% { --angle-cyan-2: 135deg; }
+    100% { --angle-cyan-2: 495deg; }
+}
+@keyframes rotateMagenta2 {
+    0% { --angle-magenta-2: 135deg; }
+    100% { --angle-magenta-2: -225deg; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- ITEM SLOT WITH RARITY SYSTEM --- */
+
+/* Base Structure */
+.item-slot {
+    position: relative;
+    width: 86px; 
+    height: 86px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    /* We'll set the border and background color via rarity classes below */
+    border: 2px solid transparent; 
+    background-color: transparent; 
+}
+
+/* The dark overlay that creates the "cutout" effect */
+.item-slot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 75%; 
+    border-bottom-left-radius: 50% 80%; 
+    z-index: 1;
+}
+
+/* Main Item Image */
+.main-item-img {
+    position: absolute;
+    top: -5%; 
+    left: 0;
+    width: 100%;
+    height: 80%; 
+    object-fit: contain;
+    z-index: 2;
+    transform: scale(1.15); 
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.6));
+}
+
+/* Bottom Dark Bar */
+.item-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%; 
+    background-color: #0b1019;
+    z-index: 3;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding-left: 6px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Sub-item Icon (e.g., Diamond, Ammo, Plus) */
+.sub-item-icon {
+    height: 60%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- RARITY MODIFIERS --- */
+
+/* Legendary (Yellow) */
+.item-slot.rarity-legendary {
+    border-color: #ffcc00;
+    background-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
+}
+.item-slot.rarity-legendary::before {
+    /* Dégradé sombre avec une très légère teinte jaune/marron */
+    background: linear-gradient(135deg, #2a2415 0%, #121008 100%);
+}
+
+/* Epic (Purple) */
+.item-slot.rarity-epic {
+    border-color: #b22687;
+    background-color: #b22687;
+    box-shadow: 0 0 10px rgba(178, 38, 135, 0.2);
+}
+.item-slot.rarity-epic::before {
+    /* Dégradé sombre avec une teinte violette */
+    background: linear-gradient(135deg, #28152a 0%, #110812 100%);
+}
+
+/* Rare (Blue) */
+.item-slot.rarity-rare {
+    border-color: #00a2ed;
+    background-color: #00a2ed;
+    box-shadow: 0 0 10px rgba(0, 162, 237, 0.2);
+}
+.item-slot.rarity-rare::before {
+    /* Dégradé sombre avec une teinte bleutée */
+    background: linear-gradient(135deg, #15222a 0%, #081012 100%);
+}
+
+/* Uncommon (Green) */
+.item-slot.rarity-uncommon {
+    border-color: #27b63f;
+    background-color: #27b63f;
+    box-shadow: 0 0 10px rgba(39, 182, 63, 0.2);
+}
+.item-slot.rarity-uncommon::before {
+    /* Dégradé sombre avec une teinte verdâtre */
+    background: linear-gradient(135deg, #152a1a 0%, #08120a 100%);
+}
+
+/* Common (Grey) */
+.item-slot.rarity-common {
+    border-color: #7b7b7b;
+    background-color: #7b7b7b;
+    box-shadow: 0 0 10px rgba(123, 123, 123, 0.2);
+}
+.item-slot.rarity-common::before {
+    /* Dégradé sombre grisâtre classique */
+    background: linear-gradient(135deg, #222225 0%, #0f0f11 100%);
+}

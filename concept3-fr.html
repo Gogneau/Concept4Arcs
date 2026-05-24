@@ -3,24 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concept 3 | Arc Raiders</title>
+    <title>The Breach Protocol | Arc Raiders</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --accent-rgb: 255, 51, 51 !important; 
+        }
+        
+        /* Ajustements cosmétiques pour le terminal (Section 5) */
+        .terminal-box {
+            background-color: #0a0b10;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 30px;
+            color: #fff;
+            font-family: monospace;
+            box-shadow: 0 10px 30px rgba(255, 51, 51, 0.15);
+            text-align: left;
+        }
+        
+        .terminal-box h3 {
+            font-family: 'Barlow', sans-serif;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .terminal-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .terminal-box li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 51, 51, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .terminal-box li strong {
+            color: var(--accent);
+        }
+    </style>
 </head>
 <body>
 
-<nav>
+    <nav>
         <div class="nav-logo-container">
             <div class="dynamic-logo"></div>
         </div>
         <div class="nav-links">
             <a href="index-fr.html">Club Speranza</a>
             <a href="concept2-fr.html">Concept 2</a>
-            <a href="concept3-fr.html" style="color: var(--accent);">Concept 3</a>
+            <a href="concept3-fr.html" style="color: var(--accent);">The Breach Protocol</a>
         </div>
         <div class="nav-spacer" style="display: flex; align-items: center; justify-content: flex-end;">
             <div class="lang-flags">
@@ -34,92 +74,270 @@
     </nav>
 
     <header class="hero-container">
-        <!-- Pense à changer l'image de fond ici -->
-        <div class="hero-bg" style="background-image: url('concept3_BG.jpg');"></div>
-        <h1>Nom du Concept 3</h1>
-        <h2>EXPLORATION DE NOUVEAUX HORIZONS</h2>
+        <div class="hero-bg" style="background-image: url('C2_HEROBG.webp'); filter: grayscale(50%) sepia(20%) hue-rotate(-50deg);"></div>
+        <h1>THE BREACH PROTOCOL</h1>
+        <h2>Une extension endgame pour les Raiders vétérans. Reprenez la surface, une forteresse après l'autre.</h2>
     </header>
 
     <div class="overview-text">
-        voici un aperçu rapide de ce troisième concept
+        Identification des cibles en cours...
     </div>
 
     <section class="concept-grid" id="grid">
-        <div class="card" style="--card-bg-img: url('Image_C3_1.webp');">
-            <h3>PREMIER POINT CLÉ</h3>
+        <div class="card" style="--card-bg-img: url('HC1.webp'); border-color: var(--accent);">
+            <h3>THE TARGET</h3>
             <div class="card-info">
-                <p>Brève description de la mécanique.<br>Explication secondaire.</p>
-                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+                <p>Identifiez les "Large Vaults" sur votre carte, des forteresses lourdement gardées.</p>
             </div>
         </div>
 
-        <div class="card" style="--card-bg-img: url('Image_C3_2.webp');">
-            <h3>DEUXIÈME POINT CLÉ</h3>
+        <div class="card" style="--card-bg-img: url('HC2.webp'); border-color: var(--accent);">
+            <h3>THE TECH</h3>
             <div class="card-info">
-                <p>Pourquoi cet aspect est important.<br>Ce que ça change en jeu.</p>
-                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+                <p>Utilisez le Lore et les matériaux exotiques pour briser les sécurités des machines.</p>
             </div>
         </div>
         
-        <div class="card" style="--card-bg-img: url('Image_C3_3.webp');">
-            <h3>TROISIÈME POINT CLÉ</h3>
+        <div class="card" style="--card-bg-img: url('HC3.webp'); border-color: var(--accent);">
+            <h3>THE RISK</h3>
             <div class="card-info">
-                <p>L'impact sur la progression globale.<br>Système de récompenses.</p>
-                <p style="margin-top: 15px; font-size: 0.85em; color: var(--accent);">Cliquez pour lire la suite</p>
+                <p>Entrez dans des zones sans issue où votre équipement est votre seule assurance vie.</p>
             </div>
         </div>
     </section>
 
     <div class="scroll-indicator">
-        <span>défilez vers le bas pour plus d'infos</span>
+        <span>Initialisation du protocole</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
     </div>
 
-    <!-- FENÊTRE 1 -->
-    <section id="section-c3-1" class="info-section align-center" style="background-color: var(--card-bg-closed);">
+    <section id="section-escalation" class="info-section align-center">
         <div class="info-content">
-            <h2>DÉTAIL DU POINT 1</h2>
-            <p class="intro-text">Ici, tu peux développer la première idée présentée dans ta première hovercard. Le style de cette fenêtre reprend les mêmes codes que la page principale.</p>
+            <h2>ENDGAME ESCALATION</h2>
+            <p class="intro-text">
+                Ce système donne enfin une utilité réelle au stuff "Heavy" et aux gadgets avancés. Le monde de la surface devient trop étroit ; le <strong>"Breach Protocol"</strong> offre une raison de risquer ses meilleurs loadouts contre une difficulté qui ne pardonne pas.
+            </p>
         </div>
     </section>
 
-    <!-- FENÊTRE 2 -->
-    <section id="section-c3-2" class="info-section align-left">
+    <section id="section-loop" class="info-section align-center window-2">
         <div class="info-content">
-            <h2>DÉTAIL DU POINT 2</h2>
-            <p class="intro-text">Explication approfondie du deuxième élément. L'alignement à gauche crée un dynamisme visuel pendant que l'utilisateur fait défiler la page vers le bas.</p>
+            <div class="window-2-layout">
+                <div class="schema-container">
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">ÉTAPE 1</div>
+                        <h3 class="schema-title">EXTRACTION</h3>
+                        <div class="schema-subtitle">ANCIENT SCRAPS</div>
+                        <p class="schema-text">Fouillez les "Small Vaults" en raid normal pour accumuler la technologie nécessaire à la création de votre brèche.</p>
+                    </div>
+                    
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">ÉTAPE 2</div>
+                        <h3 class="schema-title">CONVERSION</h3>
+                        <div class="schema-subtitle">THE DECODER</div>
+                        <p class="schema-text">Fabriquez votre pass d'entrée via le projet Data Analyser à Speranza pour transcoder les données brutes.</p>
+                    </div>
+
+                    <div class="schema-column">
+                        <div class="schema-eyebrow">ÉTAPE 3</div>
+                        <h3 class="schema-title">INFILTRATION</h3>
+                        <div class="schema-subtitle">THE BREACH</div>
+                        <p class="schema-text">Forcez l'entrée d'une forteresse et survivez aux vagues de sécurité pour atteindre le cœur de la structure.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel">
+                    <h2>FROM SCRAPS TO INTEL</h2>
+                    <p class="intro-text">
+                        <strong>Progression (Intel & Mods) :</strong><br><br>
+                        Récupérez des <em>Intelligence Folders</em> et des <em>Advanced Exotic Scraps</em> pour faire progresser votre système de Milestone et crafter des mods d'armes exclusifs.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- FENÊTRE 3 -->
-    <section id="section-c3-3" class="info-section align-right" style="background-color: var(--card-bg-closed);">
-        <div class="info-content">
-            <h2>DÉTAIL DU POINT 3</h2>
-            <p class="intro-text">Dernière section liée à la troisième hovercard. L'animation d'apparition du texte s'activera toute seule grâce au script d'observation.</p>
+    <section id="section-pacing" class="info-section align-left" style="background-color: var(--card-bg-closed);">
+        <div class="info-content dual-box-layout">
+            <div class="left-modifier-box" style="background: url('Speranza.webp') center/cover no-repeat; position: relative;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7);"></div>
+                <div style="position: relative; z-index: 2; text-align: center;">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M12 8v4"></path>
+                        <path d="M12 16h.01"></path>
+                    </svg>
+                    <h2 style="color: #fff; font-size: 2.5rem; text-transform: uppercase;">You Control<br><span style="color: var(--accent);">The Pacing</span></h2>
+                </div>
+            </div>
+            
+            <div class="right-info-box">
+                <h2 style="font-size: 3rem; text-transform: uppercase; margin-bottom: 20px;">Sécurité & Rythme</h2>
+                <div class="emphase-box" style="margin-bottom: 30px;">
+                    <strong>ALERTE MAXIMALE</strong> - La forteresse s'adapte à vos actions.
+                </div>
+                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 15px;">
+                    <strong style="color: var(--accent);">Défense de zone :</strong> Systèmes de sécurité détournés par les Arcs (CCTV, alarmes sonores prévenant les autres Raiders).
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 15px;">
+                    <strong style="color: var(--accent);">Contrôle des flux :</strong> Portes blindées à sens unique ou piratables pour sceller des sections et se soigner.
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.7;">
+                    <strong style="color: var(--accent);">Anti-AFK :</strong> Spawn intermittent de petits Arcs (Ticks, Pop) via les conduits d'aération pour maintenir la pression.
+                </p>
+            </div>
         </div>
     </section>
+
+    <section id="section-rewards" class="info-section align-center">
+        <div class="info-content" style="max-width: 1200px; width: 100%;">
+            <h2>ARC-GRAFTED MODS & MILESTONES</h2>
+            <p class="intro-text" style="margin-bottom: 40px; text-align: center;">Interface Terminal _Shani : Accès aux récompenses déverrouillé.</p>
+            
+            <div class="document-layout">
+                <div class="doc-preview-wrapper" style="display: flex; gap: 20px; flex-direction: row; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-epic">
+                            <img src="Icon_Trinket.png" alt="Tech Mod" class="main-item-img" style="filter: hue-rotate(120deg);">
+                            <div class="item-bottom-bar">
+                                <img src="positive_icon.webp" alt="Mod" class="sub-item-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glow-wrapper lift-on-hover">
+                        <div class="item-slot rarity-legendary">
+                            <img src="Icon_Projects_Menu.png" alt="Milestone" class="main-item-img">
+                            <div class="item-bottom-bar">
+                                <img src="positive_icon.webp" alt="Intel" class="sub-item-icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-box" style="flex: 1;">
+                    <h3>> TERMINAL_LOG</h3>
+                    <ul>
+                        <li><strong>[ Tech-Mods ] :</strong> Découvrez des modules hybrides uniques combinant la technologie des Raiders et celle des Arcs (ex: Optiques à résonance, condensateurs gravitationnels).</li>
+                        <li><strong>[ Milestones ] :</strong> Franchissez des paliers basés sur le volume d'Intels rapportés à Speranza.</li>
+                        <li><strong>[ Unlocks ] :</strong> Débloquez des entrées approfondies du Codex, des décorations holographiques pour votre repaire et des avantages de craft exclusifs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-hub" class="info-section align-center" style="background: url('club_speranza_BG.jpg') center/cover no-repeat;">
+        <div class="info-content project-window-layout" style="background: rgba(10, 10, 10, 0.85); padding: 50px; border-radius: 8px; border-left: 4px solid var(--accent); backdrop-filter: blur(10px); max-width: 1400px; width: 95%;">
+            
+            <div class="project-menu-container">
+                <div class="project-card" style="border-color: var(--accent);">
+                    <div class="project-content" style="background-image: url('window2_BG.avif');"></div>
+                    <div class="project-title-bar">
+                        <span class="project-label">PROJECT: DATA ANALYSER</span>
+                    </div>
+                </div>
+                
+                <div class="requirement-box">
+                    <h4 class="requirement-title">MATÉRIAUX REQUIS</h4>
+                    <div class="requirement-item">
+                        <img src="Icon_Key.png" alt="Scrap" class="req-icon">
+                        <span class="req-text">3x Ancient Tech Scraps</span>
+                    </div>
+                    <button class="purchase-btn-game" style="background-color: var(--accent); color: #fff;">
+                        <div class="key-prompt" style="border-color: #800000; color: #fff;">E</div> CRAFT DECODER
+                    </button>
+                </div>
+            </div>
+            
+            <div class="project-text-container" style="text-align: left; align-items: flex-start;">
+                <h2 style="font-size: 3.5rem; text-transform: uppercase; margin-bottom: 20px; line-height: 1;">THE DECRYPTION HUB</h2>
+                
+                <p class="intro-text" style="margin-bottom: 20px; color: #ccc;">
+                    Interface de craft avancée pour générer le <strong>Key Decoder</strong>. Cet outil est indispensable pour forcer l'entrée des sas de haute sécurité dans les forteresses ARC.
+                </p>
+
+                <div class="emphase-box" style="margin-bottom: 30px;">
+                    TEMPS DE DÉCRYPTAGE : <strong>01:00:00</strong>
+                </div>
+
+                <h3 style="color: var(--accent); font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; font-weight: 800;">
+                    AMÉLIORATIONS DISPONIBLES
+                </h3>
+                
+                <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.6;">
+                    <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent);">[+]</span> 
+                        <span><strong>Optimisation de Processeur :</strong> Réduit le temps de craft de 15% par palier.</span>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent);">[+]</span> 
+                        <span><strong>Analyse de Menace :</strong> Révèle les types d'ennemis et les modificateurs de la forteresse avant le déploiement.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-locations" class="info-section align-center window-trials">
+        <div class="info-content">
+            <div class="trials-header">
+                <h2 class="trials-title">IDENTIFIED <span>ARC STRONGHOLDS</span></h2>
+                <p class="trials-desc">Speranza a identifié plusieurs structures clés contrôlées par les machines. Le niveau de menace est critique.</p>
+            </div>
+            
+            <div class="loop-container">
+                <div class="loop-card dark" style="border-color: var(--accent);">
+                    <div class="loop-card-eyebrow">RIVEN TIDES</div>
+                    <h4 style="color: var(--accent);">The Offshore Rig</h4>
+                    <p>Une montée verticale sous haute pression via un ascenseur de fret exposé. Les snipers ARC couvrent chaque palier. Pas de couverture naturelle.</p>
+                </div>
+                
+                <div class="loop-connector">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </div>
+                
+                <div class="loop-card dark" style="border-color: var(--accent);">
+                    <div class="loop-card-eyebrow">BURIED CITY</div>
+                    <h4 style="color: var(--accent);">The Warehouse</h4>
+                    <p>Un dédale étouffant de serveurs et de conteneurs sous le Galleria Mall. Les combats se font à très courte portée. Attention aux embuscades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-conclusion" class="info-section align-center" style="min-height: 40vh; border-bottom: 4px solid var(--accent);">
+        <div class="info-content" style="text-align: center;">
+            <h2 style="font-size: 4rem;">BEYOND THE SURFACE</h2>
+            <p class="intro-text" style="max-width: 800px; margin: 0 auto;">
+                Speranza ne peut plus se contenter de survivre dans l'ombre. Il est temps de repousser les machines. Le <strong>Breach Protocol</strong> représente le futur de la résistance : ne plus seulement se cacher, mais reprendre le contrôle des structures stratégiques de la surface.
+            </p>
+        </div>
+    </section>
+
+    <div class="floating-nav" id="floatingNav">
+        <div class="nav-dot" data-target="section-escalation"><span class="dot-label">Escalation</span></div>
+        <div class="nav-dot" data-target="section-loop"><span class="dot-label">La Boucle</span></div>
+        <div class="nav-dot" data-target="section-pacing"><span class="dot-label">Sécurité</span></div>
+        <div class="nav-dot" data-target="section-rewards"><span class="dot-label">Récompenses</span></div>
+        <div class="nav-dot" data-target="section-hub"><span class="dot-label">Le Projet</span></div>
+        <div class="nav-dot" data-target="section-locations"><span class="dot-label">Localisations</span></div>
+    </div>
 
     <script>
-        // Gestion du clic sur les cartes
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card, index) => {
-            card.addEventListener('click', function(e) {
-                const targets = ['section-c3-1', 'section-c3-2', 'section-c3-3'];
-                const targetElement = document.getElementById(targets[index]);
-                if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-            });
-        });
-
-        // Dark Mode Toggle (avec texte en français)
+        // Toggle Theme
         const themeToggleBtn = document.getElementById('theme-toggle');
         themeToggleBtn.addEventListener('click', function() {
             document.body.classList.toggle('dark-theme');
             themeToggleBtn.textContent = document.body.classList.contains('dark-theme') ? 'Mode Clair' : 'Mode Sombre';
         });
 
-        // Scroll Reveal Animation
+        // Scroll Reveal
         const infoContents = document.querySelectorAll('.info-content');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
@@ -129,6 +347,42 @@
             });
         }, observerOptions);
         infoContents.forEach(content => observer.observe(content));
+
+        // Floating Nav
+        const floatingNav = document.getElementById('floatingNav');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const sections = [ 
+            document.getElementById('section-escalation'), 
+            document.getElementById('section-loop'), 
+            document.getElementById('section-pacing'),
+            document.getElementById('section-rewards'),
+            document.getElementById('section-hub'),
+            document.getElementById('section-locations')
+        ];
+
+        window.addEventListener('scroll', () => {
+            if (scrollIndicator.getBoundingClientRect().top < 0) { floatingNav.classList.add('is-visible'); } 
+            else { floatingNav.classList.remove('is-visible'); }
+
+            let currentSectionId = '';
+            sections.forEach(section => {
+                if (!section) return;
+                if (pageYOffset >= (section.offsetTop - window.innerHeight / 2)) { currentSectionId = section.getAttribute('id'); }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-target') === currentSectionId) { dot.classList.add('active'); }
+            });
+        });
+
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetSection = document.getElementById(dot.getAttribute('data-target'));
+                if (targetSection) { targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            });
+        });
     </script>
 </body>
 </html>
